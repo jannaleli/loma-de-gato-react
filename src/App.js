@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
+import Layout from './hoc/Layout/Layout';
+import Events from './containers/Events/Events';
+import ViewComplaint from './containers/ViewComplaint/ViewComplaint';
+import Documents from './containers/Documents/Documents';
+import Contacts from './containers/Contacts/Contacts';
+import ApplyClearance from './containers/ApplyClearance/ApplyClearance';
+import ApplyPermit from './containers/ApplyPermit/ApplyPermit';
+import Register from './containers/Register/Register';
+import Login from './containers/Login/Login';
+import CheckStatus from './containers/CheckStatus/CheckStatus';
+import PostComplaint from './containers/PostComplaint/PostComplaint';
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  componentDidMount () {
+    
+  }
+  render () {
+
+    let routes = (
+      <Switch>
+        <Route path="/" exact component={Events} />
+        <Route path="/document" exact component={Documents} />
+        <Route path="/complaint"  exact component={ViewComplaint} />
+        <Route path="/contact" exact component={Contacts} />
+        <Route path="/apply-clearance" exact component={ApplyClearance} />
+        <Route path="/apply-permit" exact component={ApplyPermit} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/check-status" exact component={CheckStatus} />
+        <Route path="/post-complaint" exact component={PostComplaint} />
+        <Redirect to="/" />
+      </Switch>
+    );
+
+      
+
+ 
+
+    return (
+      <div>
+        <Layout>
+          {routes}
+        </Layout>
+      </div>
+    );
+  }
 }
 
-export default App;
+
+
+export default withRouter(App);

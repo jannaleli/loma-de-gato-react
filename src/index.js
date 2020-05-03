@@ -1,13 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
+import complaintsReducer from './store/reducers/complaints';
+import authReducer from './store/reducers/auth';
+import eventsReducer from './store/reducers/events';
+import permitsReducer from './store/reducers/permit';
+import usercomplaintsReducer from './store/reducers/userComplaint';
+import userDocumentsReducer from './store/reducers/userDocument';
+import userLoginReducer from './store/reducers/userLogin';
+import userPermitsReducer from './store/reducers/userPermit';
+import userRegisterReducer from './store/reducers/userRegister';
+import documentsReducer from './store/reducers/document';
+import App from './App';
 
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+  complaint: complaintsReducer,
+  events: eventsReducer,
+  permits: permitsReducer,
+  usercomplaint: usercomplaintsReducer,
+  userdocument: userDocumentsReducer,
+  userlogin: userLoginReducer,
+  userpermit: userPermitsReducer,
+  userregister: userRegisterReducer,
+  document: documentsReducer
+
+});
+
+const store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(thunk)
+));
+const app = (
+ 
+  <Provider store={store}>
+  <BrowserRouter>
+      <App />
+  </BrowserRouter>
+  </Provider>
+
+);
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  app,
   document.getElementById('root')
 );
 

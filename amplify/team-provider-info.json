@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-lomadegatoapp-dev-85324-authRole",
+            "UnauthRoleArn": "arn:aws:iam::401807125455:role/amplify-lomadegatoapp-dev-85324-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::401807125455:role/amplify-lomadegatoapp-dev-85324-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-lomadegatoapp-dev-85324-deployment",
+            "UnauthRoleName": "amplify-lomadegatoapp-dev-85324-unauthRole",
+            "StackName": "amplify-lomadegatoapp-dev-85324",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:401807125455:stack/amplify-lomadegatoapp-dev-85324/608aea90-8758-11ea-b216-06abab1199f8",
+            "AmplifyAppId": "d3lvqj0lnpu6qm"
+        }
+    }
+}
