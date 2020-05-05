@@ -20,7 +20,7 @@ export const getEventstFail = (error) => {
 
 export const callGetEvents= () => {
            
-
+    console.log('callGetevent() called')
     const params = {
         headers : {
             'Content-Type': 'application/json',
@@ -37,13 +37,37 @@ export const callGetEvents= () => {
         .get(LOMA_API_NAME, EVENTS_PATH, params)
         .then(response => {
           // Add your code here
-          var obj = JSON.parse(response.data);
-
-          dispatch(getEvents(response.data));
+          console.log(response);
+          console.log(response.data);
+          var obj = JSON.parse(response);
+          console.log(obj);
+          dispatch(getEvents(obj));
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(getEventstFail(error.response))
+          console.log('error')
+
+
+                 // Error
+        if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            // console.log(error.response.data);
+            // console.log(error.response.status);
+            // console.log(error.response.headers);
+            dispatch(getEventstFail(error.response))
+        } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the 
+            // browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+            dispatch(getEventstFail(error.response))
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+            dispatch(getEventstFail(error.response))
+        }
+        console.log(error.config);
        });
     };
 

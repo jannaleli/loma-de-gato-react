@@ -18,7 +18,8 @@ export {
 
 export {
     getEvents,
-    getEventstFail
+    getEventstFail,
+    callGetEvents
 
 } from './events';
 
