@@ -28,8 +28,8 @@ export const callGetEvents= () => {
             'Host': 'mjdjlvb5x9.execute-api.ap-southeast-1.amazonaws.com',
             'Accept-Encoding': 'gzip, deflate',
             'Content-Length': '243',
-            'Connection': 'keep-alive',
-        },
+            'Connection': 'keep-alive'
+        }
 
     };
     return dispatch => {
