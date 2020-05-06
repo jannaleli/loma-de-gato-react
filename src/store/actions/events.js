@@ -36,12 +36,9 @@ export const callGetEvents= () => {
         API
         .get(LOMA_API_NAME, EVENTS_PATH, params)
         .then(response => {
-          // Add your code here
-          console.log(response);
-          console.log(response.data);
-          var obj = JSON.parse(response);
-          console.log(obj);
-          dispatch(getEvents(obj));
+         
+     
+          dispatch(getEvents(response));
         })
         .catch(error => {
           console.log('error')
