@@ -48,5 +48,11 @@ Amplify.configure({
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
         mandatorySignIn: true,
 
+    },
+    Storage: {
+        AWSS3: {
+            bucket: 'barangay-api', //REQUIRED -  Amazon S3 bucket
+            region: 'ap-southeast-1', //OPTIONAL -  Amazon service region
+        }
     }
 });

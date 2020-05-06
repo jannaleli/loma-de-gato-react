@@ -34,3 +34,6 @@ export const CONFIRM_SIGN_UP = 'CONFIRM_SIGN_UP';
 export const SIGN_IN_USER = 'SIGN_IN_USER'; 
 export const SIGN_IN_USER_FAIL = 'SIGN_IN_USER_FAIL';
 
+export const SET_MEDIA_SUCCESS = 'SET_MEDIA_SUCCESS';
+export const SET_MEDIA_FAIL = 'SET_MEDIA_FAIL';
+

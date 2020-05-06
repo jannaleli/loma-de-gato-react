@@ -10,6 +10,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {getImage }  from '../../shared/api';
 
 
 
@@ -21,11 +22,23 @@ class Events extends Component {
 
     render () {
      
+      if(this.props.events !== null){
+        this.props.events.map((row) => (
 
+          getImage(row.attachment_id)
+        )
+         
+        )
+      }
+        
+   
+      
+     
 
        
         return(
 
+      
           
             this.props.events ? 
             <TableContainer component={Paper}>
