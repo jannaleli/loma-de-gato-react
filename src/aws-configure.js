@@ -27,27 +27,6 @@ Amplify.configure({
                 endpoint: "https://mjdjlvb5x9.execute-api.ap-southeast-1.amazonaws.com/prod"
             }
         ]
-    }
-});
-
-Amplify.configure({
-    Auth: {
-
-        // REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-        identityPoolId: 'ap-southeast-1:d31cf569-2c5b-42da-b021-185fe95ecc44',
-
-        // REQUIRED - Amazon Cognito Region
-        region: 'ap-southeast-1',
-
-        // OPTIONAL - Amazon Cognito User Pool ID
-        userPoolId: 'ap-southeast-1_lvUalkT6e',
-
-        // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-        userPoolWebClientId: '487b8mup2fgpdho56meg129uf6',
-
-        // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
-    
-
     },
     Storage: {
         AWSS3: {
@@ -56,3 +35,4 @@ Amplify.configure({
         }
     }
 });
+
