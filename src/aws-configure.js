@@ -46,7 +46,7 @@ Amplify.configure({
         userPoolWebClientId: '487b8mup2fgpdho56meg129uf6',
 
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
-        mandatorySignIn: true,
+    
 
     },
     Storage: {
