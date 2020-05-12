@@ -1,18 +1,12 @@
 
 import { Storage } from 'aws-amplify';
-
+import React, {Component} from 'react';
 export const getImage = (fileName) => {
-    Storage.get(fileName)
-    .then(result => {
-
-        console.log(result)
-        return result
-    })
-    .catch(err => {
 
 
-        console.log(err)
-        return err
-    });
+
+
     
 };
+
+export default getImage;

@@ -10,54 +10,88 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {getImage }  from '../../shared/api';
+import EventSummary from '../../components/EventSummary/EventSummary';
+import Modal from '../../components/UI/Modal/Modal';
+
 
 
 
  
 class Events extends Component {
+  state = {
+    closed: false,
+    attachment_id: null,
+    event_desc: null,
+    
+}
+
+
     componentDidMount () {
       this.props.callGetEvents()
     }
+    ModalClosed = () => {
+      console.log('Modal closed ');
+      this.setState({
+        closed: false
+      });
+    }
+
+     ModalOpened = (props) => {
+      this.setState({
+        closed: true,
+        attachment_id: props.attachment_id,
+        event_desc: props.event_desc
+      });
+
+
+    }
 
     render () {
-     
-      if(this.props.events !== null){
-        this.props.events.map((row) => (
-
-          getImage(row.attachment_id)
-        )
-         
-        )
-      }
-        
+  
    
-      
-     
 
+
+
+
+
+
+    
        
         return(
 
-      
           
             this.props.events ? 
-            <TableContainer component={Paper}>
+
+            <React.Fragment>
+                      <Modal show={this.state.closed} modalClosed={this.ModalClosed}>
+                        {console.log(this.state.attachment_id)}
+              <EventSummary
+              image={this.state.attachment_id}
+              desc={this.state.event_desc}
+              modalClosed={this.ModalClosed}
+              />
+        </Modal>
+
+<TableContainer component={Paper}>
             <Table size="small" aria-label="a dense table">
       
               <TableBody>
                 {this.props.events.map((row) => (
-                  <TableRow key={row.event_desc}>
+                  <TableRow key={row.event_id} onClick={()=>this.ModalOpened(row)}>
                     <TableCell component="th" scope="row">
-                      {row.attachment_id}
+                    <img src={row.attachment_id} height="42" width="42" />
                     </TableCell>
-                    <TableCell align="right">Calories</TableCell>
+                    <TableCell align="right">{row.event_desc}</TableCell>
 
 
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
-          </TableContainer> : 
+          </TableContainer>
+
+            </React.Fragment>
+             : 
           
           null
           

@@ -1,7 +1,8 @@
 import * as actionTypes from './actionTypes';
 
 import { EVENTS_PATH, LOMA_API_NAME } from '../../aws-configure';
-import { API } from 'aws-amplify';
+import { API, Storage } from 'aws-amplify';
+import  getImage   from '../../shared/api';
 export const getEvents = (events) => {
     return {
         type: actionTypes.GET_EVENTS,
@@ -36,9 +37,44 @@ export const callGetEvents= () => {
         API
         .get(LOMA_API_NAME, EVENTS_PATH, params)
         .then(response => {
+
+            const promise = (response) => {
+                return  new Promise( (resolve, reject) => {
+                    
+                    response.map((row, index) => {
+                        Storage.get(row.attachment_id)
+                        .then(result => {
+                         
+                            row.attachment_id = result
+                       
+                           if (index === Object.keys(response).length - 1){
+                            resolve(response);
+                           }
+                        })
+                        .catch(err => {
+                            reject(err);   
+                        });
+                    })
+                  
+                
+                 });
+               }
+
+
+
+        
+                promise(response).then( result => {
+
+                    dispatch(getEvents(result));
+                  
+                   }, function(error) {
+                    
+                   });
+                 
+   
+          
          
-     
-          dispatch(getEvents(response));
+       
         })
         .catch(error => {
           console.log('error')
