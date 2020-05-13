@@ -35,7 +35,7 @@ class ApplyClearance extends Component {
                     labelId="demo-controlled-open-select-label"
                     id="demo-controlled-open-select"
                     value={0}
-            
+
                  >
                         <MenuItem value={0}>
                             <em>Select Reason</em>
@@ -44,16 +44,16 @@ class ApplyClearance extends Component {
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                  </Select>
-                 <TextField 
+                 <TextField
                     error={this.state.error}
-                    id="standard-error-helper-text" 
+                    id="standard-error-helper-text"
                     label="Error"
                     defaultValue="Hello World"
                     helperText="Incorrect Entry" />
-           
+
                 </form>
              </div>;
-    } 
+    }
 };
 
 
