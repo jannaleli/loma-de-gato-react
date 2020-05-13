@@ -13,11 +13,8 @@ class Documents extends Component {
 
     state = {
         applyClearanceOpen: false,
-        applyClearanceClose: true,
         applyPermitOpen: false,
-        applyPermitClose: true,
-        checkStatusOpen: false,
-        checkStatusClose: true
+        checkStatusOpen: false
     }
 
     clickApplyClearance = () => {
@@ -40,21 +37,41 @@ class Documents extends Component {
             checkStatusOpen : true
         }); 
     }
+
+    clickApplyClearanceClose = () => {
+        this.setState({
+            applyClearanceOpen : false
+        }); 
+    }
+
+    clickApplyPermitClose = () => {
+        this.setState({
+            applyPermitOpen : false
+        }); 
+    }
+
+    clickCheckStatusClose = () => {
+        this.setState({
+            checkStatusOpen : false
+        }); 
+    }
     render () {
        
-        return <div className={classes.Documents}>
-         <Modal show={this.state.applyClearanceOpen} modalClosed={this.ModalClosed}>
+        return <React.Fragment>
+                     <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
   
-              <ApplyClearance />
-        </Modal>
-        <Modal show={this.state.applyPermitOpen} modalClosed={this.ModalClosed}>
+  <ApplyClearance />
+</Modal>
+<Modal show={this.state.applyPermitOpen} modalClosed={this.clickApplyPermitClose}>
 
-              <ApplyPermit />
-        </Modal>
-        <Modal show={this.state.checkStatusOpen} modalClosed={this.ModalClosed}>
-                     
-              <CheckStatus />
-        </Modal>
+  <ApplyPermit />
+</Modal>
+<Modal show={this.state.checkStatusOpen} modalClosed={this.clickCheckStatusClose}>
+         
+  <CheckStatus />
+</Modal>
+             <div className={classes.Documents}>
+
         <Button variant="contained" onClick={this.clickApplyClearance} color="primary">
              Apply Clearance
         </Button><br />
@@ -65,7 +82,8 @@ class Documents extends Component {
              Check Status
         </Button>
 
-        </div>;
+        </div>
+        </React.Fragment>;
     } 
 };
 
