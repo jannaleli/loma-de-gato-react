@@ -23,29 +23,106 @@ class ApplyPermit extends Component {
         lessor_barangay: null,
         lessor_province: null,
         monthly_rental: null,
-        error: false
+        sec_number_error: false,
+        business_name_error: false,
+        business_activity_error: false,
+        no_of_units_error: false,
+        street_error: false,
+        building_number_error:false,
+        capitalization_error: false,
+        gross_sale_error: false,
+        lessor_name_error: false,
+        lessor_email_error: false,
+        lessor_building_number_error: false,
+        lessor_city_error: false,
+        lessor_subdivision_error: false,
+        lessor_street_error: false,
+        lessor_barangay_error: false,
+        lessor_province_error: false,
+        monthly_rental_error: false,
+    }
+
+    onChangeTextField = (value, type) => {
+
+        const val =  value.target.value
+        console.log(value.target)
+        console.log(value.target.value)
+        console.log(value.target.type)
+
+        switch(type){
+            case 'SEC Number': return this.setState({
+                sec_number : val
+            }); 
+            case 'Business Name': return this.setState({
+                business_name : val
+            }); ;
+            case 'Business Activity': return this.setState({
+                business_activity : val
+            }); ;
+            case 'Street': return this.setState({
+                street : val
+            }); ;
+            case 'Building Number': return this.setState({
+                building_number : val
+            }); ;
+            case 'Capitalization': return this.setState({
+                capitalization : val
+            }); 
+            case 'Gross Sale': return this.setState({
+                gross_sale : val
+            }); 
+            case 'Lessor Name': return this.setState({
+                lessor_name : val
+            }); 
+            case 'Lessor Email': return this.setState({
+                lessor_email : val
+            }); 
+            case 'Lessor Building Number': return this.setState({
+                lessor_building_number : val
+            }); 
+            case 'Lessor City': return this.setState({
+                lessor_city : val
+            }); 
+            case 'Lessor Subdivision': return this.setState({
+                lessor_subdivision : val
+            }); 
+            case 'Lessor Street': return this.setState({
+                lessor_street : val
+            }); 
+            case 'Lessor Barangay': return this.setState({
+                lessor_barangay : val
+            }); 
+            case 'Monthly Rental': return this.setState({
+                monthly_rental : val
+            }); 
+
+
+            default: return null
+        }
+     
     }
     render () {
        
         return <div className={classes.ApplyPermit}>
             <h1>ApplyPermit</h1>
             <form noValidate autoComplete="off">
-           <TextField id="standard-basic" label="SEC Number" />
-           {/* <TextField id="standard-basic" label="Business Name" />
-           <TextField id="standard-basic" label="Business Activity" />
-           <TextField id="standard-basic" label="No. of Units" />
-           <TextField id="standard-basic" label="Street" />
-           <TextField id="standard-basic" label="Building Number" />
-           <TextField id="standard-basic" label="Capitalization" />
-           <TextField id="standard-basic" label="Gross Sale" />
-           <TextField id="standard-basic" label="Lessor Name" />
-           <TextField id="standard-basic" label="Lessor Email" />
-           <TextField id="standard-basic" label="Lessor Building Number" />
-           <TextField id="standard-basic" label="Lessor City" />
-           <TextField id="standard-basic" label="Lessor Subdivision" />
-           <TextField id="standard-basic" label="Lessor Street" />
-           <TextField id="standard-basic" label="Lessor Barangay" />
-           <TextField id="standard-basic" label="Monthly Rental" /> */}
+           <TextField error={this.state.error} id="sec_number" label="SEC Number" onChange={(value) =>this.onChangeTextField(value, 'SEC Number')}/>
+           <TextField error={this.state.error} id="business_name" label="Business Name" onChange={(value) =>this.onChangeTextField(value, 'Business Name')} />
+           <TextField error={this.state.error} id="business_activity" label="Business Activity" onChange={(value) =>this.onChangeTextField(value, 'Business Activity')} />
+           <TextField error={this.state.error} id="no_of_units" label="No. of Units"  onChange={(value) =>this.onChangeTextField(value, 'No. of Units')} />
+           <TextField error={this.state.error} id="street" label="Street" onChange={(value) =>this.onChangeTextField(value, 'Street')}  />
+           <TextField error={this.state.error} id="building_number" label="Building Number" onChange={(value) =>this.onChangeTextField(value, 'Building Number')}  />
+           <TextField error={this.state.error} id="capitalization" label="Capitalization" onChange={(value) =>this.onChangeTextField(value, 'Capitalization')} />
+           <TextField error={this.state.error} id="gross_sale" label="Gross Sale" onChange={(value) =>this.onChangeTextField(value, 'Gross Sale')} />
+           <TextField error={this.state.error} id="lessor_name" label="Lessor Name" onChange={(value) =>this.onChangeTextField(value, 'Lessor Name')} />
+           <TextField error={this.state.error} id="lessor_email" label="Lessor Email" onChange={(value) =>this.onChangeTextField(value, 'Lessor Email')} />
+           <TextField error={this.state.error} id="lessor_building_number" label="Lessor Building Number" onChange={(value) =>this.onChangeTextField(value, 'Lessor Building Number')}  />
+           <TextField error={this.state.error} id="lessor_city" label="Lessor City" onChange={(value) =>this.onChangeTextField(value, 'Lessor City')} />
+           <TextField error={this.state.error} id="lessor_subdivision" label="Lessor Subdivision"  onChange={(value) =>this.onChangeTextField(value, 'Lessor Subdivision')} />
+           <TextField error={this.state.error} id="lessor_street" label="Lessor Street" onChange={(value) =>this.onChangeTextField(value, 'Lessor Street')} />
+           <TextField error={this.state.error} id="lessor_barangay" label="Lessor Barangay" onChange={(value) =>this.onChangeTextField(value, 'Lessor Barangay')} />
+           <TextField error={this.state.error} id="lessor_monthly_rental" label="Monthly Rental" onChange={(value) =>this.onChangeTextField(value, 'Monthly Rental')} />
+   
        </form>
             </div>;
     } 
