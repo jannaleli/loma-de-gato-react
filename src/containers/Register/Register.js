@@ -27,6 +27,22 @@ class Register extends Component {
         profession: null,
         weight:null,
         height:null,
+        email_error: null,
+        password_error: null,
+        firstName_error: null,
+        lastName_error: null,
+        phone_error: null,
+        birthDate_error:null,
+        birthPlace_error: null,
+        gender_error: null,
+        civilService_error: null,
+        address_error: null,
+        zipNumber_error: null,
+        grossIncome_error: null,
+        tinNumber_error: null,
+        profession_error: null,
+        weight_error:null,
+        height_error:null,      
         error: false
     }
 
