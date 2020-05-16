@@ -10,19 +10,26 @@ class ApplyClearance extends Component {
     state = {
         reason: null,
         governmentId: null,
-        error: false
+        reason_error: false,
+        governmentId_error: false
     }
-    open = () => {
+    onChangeTextField = (value, type) => {
 
-    }
-    handleClose = () => {
+        const val =  value.target.value
 
-    }
-    handleOpen= () => {
 
-    }
-    handleChange = () => {
+        switch(type){
+            case 'Reason': return this.setState({
+                reason : val
+            }); 
+            case 'Government ID': return this.setState({
+                governmentId : val
+            }); 
 
+
+            default: return null
+        }
+     
     }
 
 
@@ -33,23 +40,17 @@ class ApplyClearance extends Component {
                 <form noValidate autoComplete="off">
                 <Select
                     labelId="demo-controlled-open-select-label"
-                    id="demo-controlled-open-select"
-                    value={0}
+                    id="reason"
+                    value={10}
+                    onChange={(value) =>this.onChangeTextField(value, 'Government Id ')}
 
                  >
-                        <MenuItem value={0}>
-                            <em>Select Reason</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+
+                        <MenuItem value={10}>Employment</MenuItem>
+                        <MenuItem value={20}>Business</MenuItem>
+                
                  </Select>
-                 <TextField
-                    error={this.state.error}
-                    id="standard-error-helper-text"
-                    label="Error"
-                    defaultValue="Hello World"
-                    helperText="Incorrect Entry" />
+                 <TextField error={this.state.governmentId_error} id="government_id" label="Government Id"  onChange={(value) =>this.onChangeTextField(value, 'Type')} />
 
                 </form>
              </div>;
