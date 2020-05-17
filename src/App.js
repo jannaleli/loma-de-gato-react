@@ -23,7 +23,7 @@ class App extends Component {
       <Switch>
         <Route path="/" exact component={Events} />
         <Route path="/document" exact component={Documents} />
-        <Route path="/complaint"  exact component={ViewComplaint} />
+        <Route path="/complaint" exact component={ViewComplaint} />
         <Route path="/contact" exact component={Contacts} />
         <Route path="/apply-clearance" exact component={ApplyClearance} />
         <Route path="/apply-permit" exact component={ApplyPermit} />
