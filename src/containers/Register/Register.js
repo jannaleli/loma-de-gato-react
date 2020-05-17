@@ -6,6 +6,7 @@ import classes from './Register.css';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -105,6 +106,12 @@ class Register extends Component {
         }
      
     }
+    clickSubmit = () => {
+        console.log('clickApplyPermit')
+        console.log(this.state.reason)
+        console.log(this.state.governmentId)
+  
+    }
     render () {
        
         return  <div className={classes.Register}>
@@ -152,6 +159,9 @@ class Register extends Component {
            <TextField error={this.state.height_error} id="height" label="Height" onChange={(value) =>this.onChangeTextField(value, 'Height')} />
       
        </form>
+       <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+                    Submit
+                </Button>
              </div>;
     } 
 };

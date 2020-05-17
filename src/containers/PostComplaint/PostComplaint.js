@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Amplify, { API, Auth } from 'aws-amplify';
-
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 class PostComplaint extends Component {
     state = {
         complaint_id: null,
@@ -49,6 +50,12 @@ class PostComplaint extends Component {
         }
      
     }
+    clickSubmit = () => {
+        console.log('clickApplyPermit')
+        console.log(this.state.reason)
+        console.log(this.state.governmentId)
+  
+    }
     render () {
        
         return <div><h1>PostComplaint</h1>
@@ -57,6 +64,10 @@ class PostComplaint extends Component {
            <TextField error={this.state.latitude_error} id="latitude" label="Latitude" onChange={(value) =>this.onChangeTextField(value, 'Latitude')} />
            <TextField error={this.state.longitude_error} id="longitude" label="Longitude" onChange={(value) =>this.onChangeTextField(value, 'Longitude')} />
            <TextField error={this.state.type_error} id="type" label="Type"  onChange={(value) =>this.onChangeTextField(value, 'Type')} />
+           <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+                    Submit
+                </Button>
+          
           </div>;
     } 
 };

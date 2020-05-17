@@ -4,6 +4,9 @@ import * as actions from '../../store/actions/index';
 import Amplify, { API, Auth } from 'aws-amplify';
 import  classes  from './ApplyPermit.css';
 import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 class ApplyPermit extends Component {
     state = {
         sec_number: null,
@@ -101,6 +104,12 @@ class ApplyPermit extends Component {
         }
      
     }
+    clickSubmit = () => {
+        console.log('clickApplyPermit')
+        console.log(this.state.reason)
+        console.log(this.state.governmentId)
+  
+    }
     render () {
        
         return <div className={classes.ApplyPermit}>
@@ -123,7 +132,11 @@ class ApplyPermit extends Component {
            <TextField error={this.state.lessor_barangay_error} id="lessor_barangay" label="Lessor Barangay" onChange={(value) =>this.onChangeTextField(value, 'Lessor Barangay')} />
            <TextField error={this.state.lessor_province_error} id="lessor_province_error" label="Lessor Province" onChange={(value) =>this.onChangeTextField(value, 'Lessor Province')} />
            <TextField error={this.state.monthly_rental_error} id="lessor_monthly_rental" label="Monthly Rental" onChange={(value) =>this.onChangeTextField(value, 'Monthly Rental')} />
+           <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+                    Submit
+                </Button>
        </form>
+
             </div>;
     } 
 };
