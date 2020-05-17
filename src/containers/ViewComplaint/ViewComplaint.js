@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Amplify, { API, Auth } from 'aws-amplify';
-
+import GoogleMapReact from 'google-map-react';
 class ViewComplaint extends Component {
     render () {
        
-        return <div><h1>ViewComplaint</h1></div>;
+        return <div><h1>ViewComplaint</h1>
+    
+    </div>;
     } 
 };
 
@@ -24,6 +26,5 @@ const mapDispatchToProps = dispatch => {
         postComplaint: (user) => dispatch(actions.postComplaint(user))
     }
 }
-
 
     export default connect(mapStateToProps,mapDispatchToProps)(ViewComplaint);
