@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import classes from './GoogleMaps.css';
 import GoogleMapReact from 'google-map-react';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 const Marker = ({ text }) => <div>{text}</div>;
 
 class GoogleMaps extends Component {
 
 
+    state = {
+      markers: null
+    }
 
       render () {
         const mapStyles = {
@@ -21,13 +26,12 @@ class GoogleMaps extends Component {
             key: 'AIzaSyAW_L2rewYCrOhKzwV61hh6n4ofu47HXso', 
             language: 'en'
          }}
-          zoom={8}
+          zoom={25}
           style={mapStyles}
-          defaultCenter={{ lat: 47.444, lng: -122.176}}
-
-          initialCenter={{ lat: 47.444, lng: -122.176}}
+          defaultCenter={{ lat: 14.779873, lng: 121.017950}}
+          initialCenter={{ lat: 14.779873, lng: 121.017950}}
         >
-            {/* <Marker position={{ lat: 48.00, lng: -122.00}} /> */}
+            <Marker position={{ lat: 14.779873, lng: 121.017950}} /> 
         </GoogleMapReact>
         </div>
       }
@@ -38,4 +42,19 @@ class GoogleMaps extends Component {
 
 }
 
-export default GoogleMaps;
+const mapStateToProps = state => {
+  return {
+      success: state.usercomplaint.success,
+      error: state.usercomplaint.error
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      GetComplaints: (complaint) => dispatch(actions.callGetComplaint())
+  }
+}
+
+
+  export default connect(mapStateToProps,mapDispatchToProps)(GoogleMaps);
+

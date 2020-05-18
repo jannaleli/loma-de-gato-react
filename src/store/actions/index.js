@@ -4,7 +4,8 @@ export  {
     getComplaints,
     postComplaint,
     getComplaintFail,
-    postComplaintFail
+    postComplaintFail,
+    callGetComplaint
 
 } from './complaint';
 
