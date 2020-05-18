@@ -3,7 +3,7 @@ import classes from './GoogleMaps.css';
 import GoogleMapReact from 'google-map-react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-const Marker = ({ text }) => <div>{text}</div>;
+import Markers from './Markers/Markers'
 
 class GoogleMaps extends Component {
 
@@ -31,7 +31,9 @@ class GoogleMaps extends Component {
           defaultCenter={{ lat: 14.779873, lng: 121.017950}}
           initialCenter={{ lat: 14.779873, lng: 121.017950}}
         >
-            <Marker position={{ lat: 14.779873, lng: 121.017950}} /> 
+            <Markers             onClick={null}
+             lat={14.779873} 
+             lng={121.017950}  /> 
         </GoogleMapReact>
         </div>
       }
