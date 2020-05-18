@@ -26,13 +26,14 @@ class GoogleMaps extends Component {
             key: 'AIzaSyAW_L2rewYCrOhKzwV61hh6n4ofu47HXso', 
             language: 'en'
          }}
-          zoom={12}
+          zoom={17}
           style={mapStyles}
           defaultCenter={{ lat: 14.779873, lng: 121.017950}}
-          initialCenter={{ lat: 14.779873, lng: 121.017950}}
+        
         >
-            <Markers             onClick={null}
-             lat={14.779873} 
+            <Markers  
+             onClick={null}
+             lat={14.779873}
              lng={121.017950}  /> 
         </GoogleMapReact>
         </div>
