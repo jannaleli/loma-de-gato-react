@@ -12,13 +12,15 @@ class GoogleMaps extends Component {
       markers: null
     }
 
+    componentDidMount () {
+        this.props.getComplaints()
+    }
+
       render () {
         const mapStyles = {
             width: '100%',
             height: '100vh'
           };
-
-        console.log('Google Maps')
           return         <div className={classes.GoogleMaps}>
  
      <GoogleMapReact
@@ -30,10 +32,23 @@ class GoogleMaps extends Component {
           style={mapStyles}
           defaultCenter={{ lat: 14.779873, lng: 121.017950}}
           initialCenter={{ lat: 14.779873, lng: 121.017950}}
-        >
-            <Markers             onClick={null}
-             lat={14.779873} 
-             lng={121.017950}  /> 
+        >{
+
+        }
+
+        {
+          this.props.complaints ? 
+          this.props.complaints.map((row) => {
+             return <Markers  
+              key={row.complaint_id}           
+              onClick={null}
+             lat={row.latitude} 
+             lng={row.longitude}  /> 
+          })
+          :
+          null
+        }
+            
         </GoogleMapReact>
         </div>
       }
@@ -47,13 +62,14 @@ class GoogleMaps extends Component {
 const mapStateToProps = state => {
   return {
       success: state.usercomplaint.success,
-      error: state.usercomplaint.error
+      error: state.usercomplaint.error,
+      complaints: state.usercomplaint.complaints
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-      GetComplaints: (complaint) => dispatch(actions.callGetComplaint())
+      getComplaints: () => dispatch(actions.callGetComplaint())
   }
 }
 
