@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
+import { COMPLAINT_PATH, LOMA_API_NAME } from '../../aws-configure';
 
-
-import { API, LOMA_API_NAME,COMPLAINT_PATH } from 'aws-amplify';
+import { API } from 'aws-amplify';
 export const getComplaints = (complaints) => {
     return {
         type: actionTypes.GET_COMPLAINTS,
@@ -121,10 +121,12 @@ export const callGetComplaint = () => {
         .get(LOMA_API_NAME, COMPLAINT_PATH, params)
         .then(response => {
           // Add your code here
-          dispatch(getComplaints(response.data));
+          console.log('Getting Complaint Success')
+          console.log(response)
+          dispatch(getComplaints(response));
         })
         .catch(error => {
-          console.log(error.response);
+          console.log(error);
           dispatch(getComplaintFail(error.response));
        });
     };

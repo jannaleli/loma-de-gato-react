@@ -32,13 +32,12 @@ class GoogleMaps extends Component {
           style={mapStyles}
           defaultCenter={{ lat: 14.779873, lng: 121.017950}}
           initialCenter={{ lat: 14.779873, lng: 121.017950}}
-        >{
-
-        }
+        >
 
         {
           this.props.complaints ? 
           this.props.complaints.map((row) => {
+            console.log('creating the markers')
              return <Markers  
               key={row.complaint_id}           
               onClick={null}
@@ -63,7 +62,7 @@ const mapStateToProps = state => {
   return {
       success: state.usercomplaint.success,
       error: state.usercomplaint.error,
-      complaints: state.usercomplaint.complaints
+      complaints: state.complaint.complaints
   };
 }
 
