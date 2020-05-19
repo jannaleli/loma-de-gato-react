@@ -1,18 +1,22 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-
-const pinStyle={
+import classes from './Markers.css'
+const iconStyle = {  
   borderRadius: '10px',
   transform: 'matrix(-1, 0, 0, 1, 10, 0)'
-}
+} 
 const Markers = (props) => {
+  console.log('Markers entered')
     return(
-      <div>
-        <Icon className="building icon" 
+     
+      <div className={classes.Markers}>
+         <Icon name="building" 
           size='big' 
-          style={pinStyle} 
-          onClick={props.onClick}
-         />
+           style={iconStyle} 
+           onClick={props.onClick}
+         /> 
+           
+
       </div>
     )
 }

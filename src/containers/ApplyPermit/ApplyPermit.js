@@ -7,6 +7,13 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import { Icon } from 'semantic-ui-react';
+const iconStyle = {  
+  borderRadius: '100px',  
+  boxShadow: '3px 3px 1px #888888',
+  width:'100px',
+  height:'100px'
+} 
 class ApplyPermit extends Component {
     state = {
         sec_number: null,
@@ -114,6 +121,8 @@ class ApplyPermit extends Component {
        
         return <div className={classes.ApplyPermit}>
             <h1>ApplyPermit</h1>
+
+        
             <form noValidate autoComplete="off">
            <TextField error={this.state.sec_number_error} id="sec_number" label="SEC Number" onChange={(value) =>this.onChangeTextField(value, 'SEC Number')}/>
            <TextField error={this.state.business_name_error} id="business_name" label="Business Name" onChange={(value) =>this.onChangeTextField(value, 'Business Name')} />
