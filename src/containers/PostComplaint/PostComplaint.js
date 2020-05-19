@@ -66,7 +66,7 @@ class PostComplaint extends Component {
            <TextField error={this.state.type_error} id="type" label="Type"  onChange={(value) =>this.onChangeTextField(value, 'Type')} />
            <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
-                </Button>
+        </Button>
           
           </div>;
     } 
