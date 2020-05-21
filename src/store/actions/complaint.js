@@ -127,7 +127,7 @@ export const callGetComplaint = () => {
         })
         .catch(error => {
           console.log(error);
-          dispatch(getComplaintFail(error.response));
+          dispatch(getComplaintFail(error));
        });
     };
 

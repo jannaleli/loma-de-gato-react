@@ -175,15 +175,18 @@ export const callGetPermit = (username) => {
 
     };
     return dispatch => {
+        //console.log(username)
+        const queryParams =  PERMIT_PATH  + '/' +  'bom@gmail.com'
         API
-        .get(LOMA_API_NAME, PERMIT_PATH + + '/' + { username }, params)
+        .get(LOMA_API_NAME, queryParams, params)
         .then(response => {
           // Add your code here
-          dispatch(getPermit(response.data));
+          console.log(response);
+          dispatch(getPermit(response));
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(getPermitsFail(error.response));
+          console.log(error);
+          dispatch(getPermitsFail(error));
        });
     };
 

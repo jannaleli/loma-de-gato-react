@@ -160,7 +160,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getPermit: () => dispatch(actions.getPermit())
+        getPermit: () => dispatch(actions.callGetPermit())
     }
 }
 

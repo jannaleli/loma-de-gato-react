@@ -11,7 +11,7 @@ const documentInitialState = {
 const getDocuments = (state, action) => {
     return updateObject (
         state, {
-               documents: document
+               documents: action.documents
             
         }
     )

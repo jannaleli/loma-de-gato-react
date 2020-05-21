@@ -95,10 +95,6 @@ const mapStateToProps = state => {
     };
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getPermit: () => dispatch(actions.getPermit())
-    }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Documents);
+
+export default connect(mapStateToProps)(Documents);

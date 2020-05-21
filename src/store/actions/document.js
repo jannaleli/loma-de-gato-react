@@ -107,20 +107,24 @@ export const callGetDocument = (username) => {
             'Host': 'mjdjlvb5x9.execute-api.ap-southeast-1.amazonaws.com',
             'Accept-Encoding': 'gzip, deflate',
             'Content-Length': '243',
-            'Connection': 'keep-alive',
+            'Connection': 'keep-alive'
         },
 
     };
     return dispatch => {
+        console.log('getting document')
+        const queryParams =  DOCUMENT_PATH  + '/' +  'bom@gmail.com'
+        console.log(queryParams)
         API
-        .get(LOMA_API_NAME, DOCUMENT_PATH  + '/' + { username }, params)
+        .get(LOMA_API_NAME, queryParams, params)
         .then(response => {
           // Add your code here
-          dispatch(getDocuments(response.data));
+          console.log(response)
+          dispatch(getDocuments(response));
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(getDocumentFail(error.response));
+          console.log(error);
+          dispatch(getDocumentFail(error));
        });
     };
 

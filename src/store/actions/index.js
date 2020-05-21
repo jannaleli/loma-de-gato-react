@@ -10,8 +10,8 @@ export  {
 } from './complaint';
 
 export {
-    getDocuments,
-    postDocument,
+    callGetDocument,
+    callPostDocument,
     getDocumentFail,
     postDocumentFail
 
@@ -25,7 +25,7 @@ export {
 } from './events';
 
 export {
-    getPermit,
+    callGetPermit,
     postPermits,
     getPermitsFail,
     postPermitsFail

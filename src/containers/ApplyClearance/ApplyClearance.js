@@ -71,7 +71,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        postDocument: (clearanceInfo) => dispatch(actions.postDocument(clearanceInfo))
+        postDocument: (clearanceInfo) => dispatch(actions.callPostDocument(clearanceInfo))
     }
 }
 
