@@ -12,96 +12,146 @@ import Button from '@material-ui/core/Button';
 
 class Register extends Component {
     state = {
-        email: null,
-        password: null,
-        firstName: null,
-        lastName: null,
-        phone: null,
-        birthDate:null,
-        birthPlace: null,
-        gender: null,
-        civilService: null,
-        address: null,
-        zipNumber: null,
-        grossIncome: null,
-        tinNumber: null,
-        profession: null,
-        weight:null,
-        height:null,
-        email_error: null,
-        password_error: null,
-        firstName_error: null,
-        lastName_error: null,
-        phone_error: null,
-        birthDate_error:null,
-        birthPlace_error: null,
-        gender_error: null,
-        civilService_error: null,
-        address_error: null,
-        zipNumber_error: null,
-        grossIncome_error: null,
-        tinNumber_error: null,
-        profession_error: null,
-        weight_error:null,
-        height_error:null,      
-        error: false
+
+        userInfo : {
+            email: null,
+            password: null,
+            firstName: null,
+            lastName: null,
+            phone: null,
+            birthDate:null,
+            birthPlace: null,
+            gender: null,
+            civilService: null,
+            address: null,
+            zipNumber: null,
+            grossIncome: null,
+            tinNumber: null,
+            profession: null,
+            weight:null,
+            height:null,
+            email_error: null,
+            password_error: null,
+            firstName_error: null,
+            lastName_error: null,
+            phone_error: null,
+            birthDate_error:null,
+            birthPlace_error: null,
+            gender_error: null,
+            civilService_error: null,
+            address_error: null,
+            zipNumber_error: null,
+            grossIncome_error: null,
+            tinNumber_error: null,
+            profession_error: null,
+            weight_error:null,
+            height_error:null,      
+            error: false
+        }
+ 
     }
 
     onChangeTextField = (value, type) => {
 
         const val =  value.target.value
-
+        const oldUserInfo = {...this.state.userInfo}
 
         switch(type){
-            case 'Email': return this.setState({
-                email : val
+            case 'Email': 
+           
+            oldUserInfo.email = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Password': return this.setState({
-                password : val
-            }); ;
-            case 'First Name': return this.setState({
-                firstName : val
-            }); ;
-            case 'Last Name': return this.setState({
-                lastName : val
-            }); ;
-            case 'Phone': return this.setState({
-                phone : val
-            }); ;
-            case 'Birth Date': return this.setState({
-                birthDate : val
+            case 'Password':
+            oldUserInfo.password = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Birth Place': return this.setState({
-                birthPlace : val
+            case 'First Name': 
+           
+            oldUserInfo.firstName = val
+            return this.setState({
+                userInfo: oldUserInfo
             }); 
-            case 'Gender': return this.setState({
-                gender : val
+            case 'Last Name': 
+           
+            oldUserInfo.lastName = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Civil Status': return this.setState({
-                civilService : val
+            case 'Phone': 
+            
+            oldUserInfo.phone = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Address': return this.setState({
-                address : val
+            case 'Birth Date': 
+            
+            oldUserInfo.birthDate = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Zip Number': return this.setState({
-                zipNumber : val
+            case 'Birth Place': 
+            
+            oldUserInfo.birthPlace = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Gross Income': return this.setState({
-                grossIncome : val
+            case 'Gender': 
+            
+            oldUserInfo.gender = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'TIN': return this.setState({
-                tinNumber : val
+            case 'Civil Status': 
+           
+            oldUserInfo.civilService = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Profession': return this.setState({
-                profession : val
+            case 'Address': 
+            
+            oldUserInfo.address = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Weight': return this.setState({
-                weight : val
+            case 'Zip Number': 
+           
+            oldUserInfo.zipNumber = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-            case 'Height': return this.setState({
-                height : val
+            case 'Gross Income': 
+      
+            oldUserInfo.grossIncome = val
+            return this.setState({
+                userInfo:  oldUserInfo
             }); 
-
+            case 'TIN': 
+      
+            oldUserInfo.tinNumber = val
+            return this.setState({
+                userInfo:  oldUserInfo
+            }); 
+            case 'Profession': 
+    
+            oldUserInfo.profession = val
+            return this.setState({
+                userInfo:  oldUserInfo
+            }); 
+            case 'Weight': 
+     
+            oldUserInfo.weight = val
+            return this.setState({
+                userInfo:  oldUserInfo
+            }); 
+            case 'Height': 
+         
+            oldUserInfo.height = val
+            return this.setState({
+                userInfo:  oldUserInfo
+            }); 
             default: return null
         }
      

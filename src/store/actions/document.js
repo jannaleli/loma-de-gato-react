@@ -61,7 +61,12 @@ export const callPostDocument = (   username,
     expiration_date,
     government_id,
     reason) => {
-
+        console.log(user_id)
+        console.log(username)
+        console.log(expiration_date)
+        console.log(government_id)
+        console.log(attachment_id)
+        console.log(reason)
    
 
     const params = {
@@ -89,10 +94,11 @@ export const callPostDocument = (   username,
         .then(response => {
           // Add your code here
         //add success
+        console.log(response)
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(setDocumentFail(error.response));
+          console.log(error);
+          dispatch(setDocumentFail(error));
         });
     };
 };

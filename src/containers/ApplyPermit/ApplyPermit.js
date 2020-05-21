@@ -16,40 +16,44 @@ const iconStyle = {
 } 
 class ApplyPermit extends Component {
     state = {
-        sec_number: null,
-        business_name: null,
-        business_activity: null,
-        no_of_units: null,
-        street: null,
-        building_number:null,
-        capitalization: null,
-        gross_sale: null,
-        lessor_name: null,
-        lessor_email: null,
-        lessor_building_number: null,
-        lessor_city: null,
-        lessor_subdivision: null,
-        lessor_street: null,
-        lessor_barangay: null,
-        lessor_province: null,
-        monthly_rental: null,
-        sec_number_error: false,
-        business_name_error: false,
-        business_activity_error: false,
-        no_of_units_error: false,
-        street_error: false,
-        building_number_error:false,
-        capitalization_error: false,
-        gross_sale_error: false,
-        lessor_name_error: false,
-        lessor_email_error: false,
-        lessor_building_number_error: false,
-        lessor_city_error: false,
-        lessor_subdivision_error: false,
-        lessor_street_error: false,
-        lessor_barangay_error: false,
-        lessor_province_error: false,
-        monthly_rental_error: false,
+
+        permitInfo : {
+            sec_number: null,
+            business_name: null,
+            business_activity: null,
+            no_of_units: null,
+            street: null,
+            building_number:null,
+            capitalization: null,
+            gross_sale: null,
+            lessor_name: null,
+            lessor_email: null,
+            lessor_building_number: null,
+            lessor_city: null,
+            lessor_subdivision: null,
+            lessor_street: null,
+            lessor_barangay: null,
+            lessor_province: null,
+            monthly_rental: null,
+            sec_number_error: false,
+            business_name_error: false,
+            business_activity_error: false,
+            no_of_units_error: false,
+            street_error: false,
+            building_number_error:false,
+            capitalization_error: false,
+            gross_sale_error: false,
+            lessor_name_error: false,
+            lessor_email_error: false,
+            lessor_building_number_error: false,
+            lessor_city_error: false,
+            lessor_subdivision_error: false,
+            lessor_street_error: false,
+            lessor_barangay_error: false,
+            lessor_province_error: false,
+            monthly_rental_error: false,
+        }
+     
     }
 
     onChangeTextField = (value, type) => {
@@ -58,52 +62,97 @@ class ApplyPermit extends Component {
         console.log(value.target)
         console.log(value.target.value)
         console.log(value.target.type)
-
+        const oldpermitInfo = {...this.state.permitInfo}
         switch(type){
-            case 'SEC Number': return this.setState({
-                sec_number : val
+            case 'SEC Number': 
+            
+            oldpermitInfo.sec_number = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Business Name': return this.setState({
-                business_name : val
-            }); ;
-            case 'Business Activity': return this.setState({
-                business_activity : val
-            }); ;
-            case 'Street': return this.setState({
-                street : val
-            }); ;
-            case 'Building Number': return this.setState({
-                building_number : val
-            }); ;
-            case 'Capitalization': return this.setState({
-                capitalization : val
+            case 'Business Name': 
+       
+            oldpermitInfo.business_name = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Gross Sale': return this.setState({
-                gross_sale : val
+            case 'Business Activity': 
+           
+            oldpermitInfo.business_activity = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor Name': return this.setState({
-                lessor_name : val
+            case 'Street': 
+          
+            oldpermitInfo.street = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor Email': return this.setState({
-                lessor_email : val
+            case 'Building Number': 
+ 
+            oldpermitInfo.building_number = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor Building Number': return this.setState({
-                lessor_building_number : val
+            case 'Capitalization':  
+     
+            oldpermitInfo.capitalization = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor City': return this.setState({
-                lessor_city : val
+            case 'Gross Sale': 
+      
+            oldpermitInfo.gross_sale = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor Subdivision': return this.setState({
-                lessor_subdivision : val
+            case 'Lessor Name':
+           
+            oldpermitInfo.lessor_name = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor Street': return this.setState({
-                lessor_street : val
+            case 'Lessor Email':
+      
+            oldpermitInfo.lessor_email = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Lessor Barangay': return this.setState({
-                lessor_barangay : val
+            case 'Lessor Building Number': 
+         
+            oldpermitInfo.lessor_building_number = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
-            case 'Monthly Rental': return this.setState({
-                monthly_rental : val
+            case 'Lessor City': 
+  
+            oldpermitInfo.lessor_city = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
+            }); 
+            case 'Lessor Subdivision':
+
+            oldpermitInfo.lessor_subdivision = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
+            }); 
+            case 'Lessor Street': 
+
+            oldpermitInfo.lessor_street = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
+            }); 
+            case 'Lessor Barangay': 
+    
+            oldpermitInfo.lessor_barangay = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
+            }); 
+            case 'Monthly Rental': 
+    
+            oldpermitInfo.monthly_rental = val
+            return this.setState({
+                permitInfo:  oldpermitInfo
             }); 
 
 
@@ -160,7 +209,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getPermit: () => dispatch(actions.callGetPermit())
+        getPermit: () => dispatch(actions.callPostDocument())
     }
 }
 

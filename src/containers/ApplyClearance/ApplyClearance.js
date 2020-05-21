@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import { randomString } from '../../shared/utility'
 class ApplyClearance extends Component {
     state = {
         reason: null,
@@ -33,8 +34,16 @@ class ApplyClearance extends Component {
     }
     clickSubmit = () => {
         console.log('clickApplyPermit')
+        console.log('reason')
         console.log(this.state.reason)
+        console.log('government id')
         console.log(this.state.governmentId)
+        const user_id = randomString(16, "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+        console.log(user_id)
+        const attachment_id = 'null'
+        const username = 'bom@gmail.com'
+        const expiration_date = 'null'
+        this.props.postDocument(username,user_id,attachment_id,expiration_date,this.state.governmentId,this.state.reason)
   
     }
 
@@ -71,7 +80,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        postDocument: (clearanceInfo) => dispatch(actions.callPostDocument(clearanceInfo))
+        postDocument: (username, user_id, attachment_id, expiration_date, government_id, reason) => dispatch(actions.callPostDocument(username, user_id, attachment_id, expiration_date, government_id, reason))
     }
 }
 

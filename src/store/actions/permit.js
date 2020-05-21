@@ -152,10 +152,11 @@ export const callPostDocument = (       username,
         .post(LOMA_API_NAME, PERMIT_PATH, params)
         .then(response => {
           // Add your code here
+          console.log(response);
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(postPermitsFail(error.response));
+          console.log(error);
+          dispatch(postPermitsFail(error));
         });
     };
 };
