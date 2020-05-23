@@ -9,10 +9,8 @@ import Button from '@material-ui/core/Button';
 import classes from './Login.css';
 class Login extends Component {
     state = {
-        email: null,
-        password: null,
-        email_error: false,
-        password_error: false
+        confirmCode: null,
+        confirmCode_error: false
     }
     onChangeTextField = (value, type) => {
 
@@ -20,12 +18,10 @@ class Login extends Component {
 
 
         switch(type){
-            case 'Email': return this.setState({
-                email : val
+            case 'Confirm Code': return this.setState({
+                confirmCode_error : val
             }); 
-            case 'Password': return this.setState({
-                password : val
-            }); ;
+
        
 
             default: return null
@@ -44,7 +40,7 @@ class Login extends Component {
 
            
        <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
-       <TextField error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
+
        <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                 Submit
             </Button>
@@ -57,14 +53,14 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        success: state.userlogin.userloginsuccess,
-        error: state.userlogin.userloginerror
+        permit: state.userlogin.permit,
+        error: state.userlogin.error
     };
 }
 
 const mapDispatchToProps = dispatch => {
-    return{
-        signinUser: () => dispatch(actions.signIn(username,password))
+    return {
+        confirmCode: () => dispatch(actions.getUser())
     }
 }
 

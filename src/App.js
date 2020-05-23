@@ -12,6 +12,7 @@ import Register from './containers/Register/Register';
 import Login from './containers/Login/Login';
 import CheckStatus from './containers/CheckStatus/CheckStatus';
 import PostComplaint from './containers/PostComplaint/PostComplaint';
+
 class App extends Component {
 
   componentDidMount () {
@@ -31,6 +32,8 @@ class App extends Component {
         <Route path="/login" exact component={Login} />
         <Route path="/check-status" exact component={CheckStatus} />
         <Route path="/post-complaint" exact component={PostComplaint} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/login" exact component={Login} />
         <Redirect to="/" />
       </Switch>
     );

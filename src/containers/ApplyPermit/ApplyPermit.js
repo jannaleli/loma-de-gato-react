@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import { Icon } from 'semantic-ui-react';
+import { randomString } from '../../shared/utility'
 const iconStyle = {  
   borderRadius: '100px',  
   boxShadow: '3px 3px 1px #888888',
@@ -160,11 +161,24 @@ class ApplyPermit extends Component {
         }
      
     }
+
+    submitPermit = () => {
+        this.props.postPermit(this.state.permitInfo)
+    }
     clickSubmit = () => {
         console.log('clickApplyPermit')
-        console.log(this.state.reason)
-        console.log(this.state.governmentId)
-  
+
+
+        const oldpermitInfo = {...this.state.permitInfo}
+        oldpermitInfo.username =  'bom@gmail.com'
+        oldpermitInfo.user_id = randomString(16, "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+        oldpermitInfo.approval_date = 'null'
+        oldpermitInfo.status = 'PENDING'
+        oldpermitInfo.ctc_no = randomString(16, "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+        this.setState({
+            permitInfo:  oldpermitInfo
+        }, this.submitPermit); 
+        
     }
     render () {
        
@@ -209,7 +223,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getPermit: () => dispatch(actions.callPostDocument())
+        postPermit: (permitInfo) => dispatch(actions.callPostPermit(permitInfo))
     }
 }
 

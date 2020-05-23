@@ -2,66 +2,47 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 const initialState = {
-    user_id: '',
-    address:'',
-    attachment_id:'',
-    birthdate:'',
-    civil_status:'',
-    contact_no:'',
-    control_no:'',
-    createdate:'',
-    firstname:'',
-    gender:'',
-    gross_income:'',
-    height:'',
-    lastname:'',
-    mobilenumber:'',
-    password:'',
-    place_of_birth:'',
-    profession:'',
-    tin_no:'',
-    username:'',
-    weight:'',
-    zipcode:'',
-    error: false,
-    success: false,
-    confirmSignUp: false
+    userInfo: null,
+    errorSignUp: false,
+    successSignUp: false,
+    confirmSignUp: false,
+    confirmSignUpSuccess: false,
+    confirmSignUpError: false,
+    saveData: false,
+    saveDataSuccess: false,
+    saveDataError: false
 };
-const setRegisterSuccess = (state, action) => {
-    return updateObject(state, {success: true});
+const setSaveDataSuccess = (state, action) => {
+    return updateObject(state, {saveDataSuccess: true, saveData: false, confirmSignUp: false, confirmSignUpError: false, confirmSignUpSuccess: false, errorSignUp: false, successSignUp: false});
 };
+const setSaveDataError = (state, action)=> {
+    return updateObject(state,{saveDataError: false})
+}
+
+const setErrorSignUp = (state, action) => {
+    return updateObject(state, {errorSignUp: true})
+};
+
+const setSuccessSignUp = (state, action) => {
+    return updateObject(state, {successSignUp: true})
+}
+
+
+const confirmSignUpSuccess = (state, action) => {
+    return updateObject(state, {confirmSignUpSuccess: true})
+}
+
+const confirmSignUpError = (state, action) => {
+    return updateObject(state, {confirmSignUpError: true})
+}
 
 const setUsers = (state, action) => {
     return updateObject (
         state, {
-            user_id: action.user_id,
-            address:action.address,
-            attachment_id:action.attachment_id,
-            birthdate:action.birthdate,
-            civil_status:action.civil_status,
-            contact_no:action.contact_no,
-            control_no:action.control_no,
-            createdate:action.createdate,
-            firstname:action.firstname,
-            gender:action.gender,
-            gross_income:action.gross_income,
-            height:action.height,
-            lastname:action.lastname,
-            mobilenumber:action.mobilenumber,
-            password:action.password,
-            place_of_birth:action.place_of_birth,
-            profession:action.profession,
-            tin_no:action.tin_no,
-            username:action.username,
-            weight:action.weight,
-            zipcode:action.zipcode
+            userInfo: action.userInfo
             
         }
     )
-};
-
-const setUsersFailed = (state, action) => {
-    return updateObject(state, {error: action.status});
 };
 
 const setConfirmSignUp = (state, action) => {
@@ -71,13 +52,18 @@ const setConfirmSignUp = (state, action) => {
 const userRegisterReducer = (state = initialState, action) => {
     switch( action.type ){
         case actionTypes.POST_USER : return setUsers(state, action);
-        case actionTypes.SET_FAIL_USER : return setUsersFailed(state, action);
-        case actionTypes.SET_SUCCESS_USER : return setRegisterSuccess(state, action);
+        case actionTypes.SET_FAIL_USER : return setSaveDataError(state, action);
+        case actionTypes.SET_SUCCESS_USER : return setSaveDataSuccess(state, action);
         case actionTypes.CONFIRM_SIGN_UP: return setConfirmSignUp(state, action);
+        case actionTypes.CONFIRM_SIGN_UP_SUCCESS: return confirmSignUpSuccess(state,action);
+        case actionTypes.CONFIRM_SIGN_UP_ERROR: return confirmSignUpError(state, action);
+        case actionTypes.SAVE_DATA_SUCCESS: return setSaveDataSuccess(state, action);
+        case actionTypes.SAVE_DATA_ERROR: return setSaveDataError(state, action);
+        case actionTypes.SET_ERROR_SIGN_UP: return setSuccessSignUp(state, action);
+        case actionTypes.SET_SUCCESS_SIGN_UP: return setErrorSignUp(state,action);
         default: return state;
     }
 };
 
 
 export default userRegisterReducer;
-

@@ -7,12 +7,12 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-
-
+import ConfirmSignUp from '../ConfirmSignUp/ConfirmSignUp';
+import Modal from '../../components/UI/Modal/Modal';
 
 class Register extends Component {
     state = {
-
+        submit: false,
         userInfo : {
             email: null,
             password: null,
@@ -156,39 +156,49 @@ class Register extends Component {
         }
      
     }
+    submitUser = () => {
+        this.props.registerUser(this.state.userInfo)
+    }
     clickSubmit = () => {
         console.log('clickApplyPermit')
         console.log(this.state.reason)
         console.log(this.state.governmentId)
-  
+        //this.props.registerUser(this.state.userInfo)
+      //  this.props.signUpAWS(this.state.userInfo.email, this.state.userInfo.password)
+      this.setState({
+        submit:  true
+    }); 
+
+        
     }
     render () {
+
+        if(this.state.submit) {
+            this.submitUser(this.state.userInfo.email, this.state.userInfo.password)
+        }
+
+
+        if(this.props.saveDataSuccess) {
+            //Build success message here :) And then close all the modals or reload the page maybe?
+        }
        
         return  <div className={classes.Register}>
                 <h1>ApplyClearance</h1>
+
+                <Modal show={  this.props.confirmSignUp} modalClosed={this.clickCheckStatusClose}>
+         
+                <ConfirmSignUp />
+                </Modal>
               
+                <Modal show={  this.props.saveDataSuccess} modalClosed={this.clickCheckStatusClose}>
+         
+                  {//Put success message here 
+                  }
+                 </Modal>
           
            
             <form noValidate autoComplete="off">
-            <Select
-                    labelId="demo-controlled-open-select-label"
-                    id="demo-controlled-open-select"
-                    value={0}
-
-                 >
-                        <MenuItem value={0}>
-                            <em>Select Reason</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                 </Select>
-                 <TextField
-                    error={this.state.error}
-                    id="standard-error-helper-text"
-                    label="Error"
-                    defaultValue="Hello World"
-                    helperText="Incorrect Entry" />
+       
 
                
            <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
@@ -219,14 +229,24 @@ class Register extends Component {
 
 const mapStateToProps = state => {
     return {
-        success: state.userRegister.success,
-        error: state.userRegister.error
+        success: state.userregister.success,
+        error: state.userregister.error,
+        saveDataSuccess: state.userregister.saveDataSuccess,
+        saveDataError: state.userregister.saveDataError,
+        errorSignUp: state.userregister.errorSignUp,
+        successSignUp: state.userregister.successSignUp,
+        confirmSignUp: state.userregister.confirmSignUp,
+        confirmSignUpSuccess: state.userregister.confirmSignUpSuccess,
+        confirmSignUpError: state.userregister.confirmSignUpError
+        
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        postDocument: (userInfo) => dispatch(actions.postUsers(userInfo))
+        registerUser: (userInfo) => dispatch(actions.callRegisterUser(userInfo)),
+        signUpAWS: (email, password) => dispatch(actions.signUp(email, password)),
+        confirmSignUp: () => dispatch(actions.confirmSignUp())
     }
 }
 

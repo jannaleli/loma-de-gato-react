@@ -10,6 +10,8 @@ const navigationItems = (props) => (
         <Logo />
         <NavigationItem link="/complaint" exact>Complaints</NavigationItem>
         <NavigationItem link="/contact" exact>Contact Us</NavigationItem>
+        <NavigationItem link="/register" exact>Register</NavigationItem>
+        <NavigationItem link="/login" exact>Login</NavigationItem>
     </ul>
 
 );

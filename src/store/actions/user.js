@@ -5,6 +5,9 @@ import { Auth } from 'aws-amplify';
 import { randomString } from '../../shared/utility';
 import { API } from 'aws-amplify';
 import { USER_PATH, LOMA_API_NAME } from '../../aws-configure';
+
+
+
 export const getUser = (users) => {
     return {
         type: actionTypes.GET_USER,
@@ -99,7 +102,13 @@ export const confirmSignUp = () => {
     };
 };
 
-export const signUp = async (email, password, userInfo) => {
+export const confirmSignUpSuccess = ()  => {
+    return {
+        type: actionTypes.CONFIRM_SIGN_UP_SUCCESS
+    }
+}
+
+export const signUp = async (email, password) => {
     return async (dispatch) => {
         try {
             const user = await Auth.signUp({
@@ -125,7 +134,7 @@ export  const signIn = async (email, password) => {
             callGetUser(email);
         } catch (error) {
             console.log('error signing in', error);
-            dispatch(getUserFail(error.response));
+            dispatch(getUserFail(error));
         }
     }
 
@@ -138,7 +147,7 @@ export  const confirmTheSignUp = async (userInfo,code) => {
             callRegisterUser(userInfo);
           } catch (error) {
               console.log('error confirming sign up', error);
-              dispatch(setUserFail(error.response))
+              dispatch(setUserFail(error))
           }
     }
 

@@ -3,8 +3,8 @@ import { updateObject } from '../../shared/utility';
 
 const initialState = {
     user: null,
-    error: false,
-    success: true
+    userloginerror: false,
+    userloginsuccess: true
 };
 
 
@@ -19,11 +19,11 @@ const setUsers = (state, action) => {
 };
 
 const setUsersFailed = (state, action) => {
-    return updateObject(state, {error: true});
+    return updateObject(state, {userloginerror: true});
 };
 
 const setLoginSuccess = (state, action) => {
-    return updateObject(state, {success: true});
+    return updateObject(state, {userloginsuccess: true});
 };
 
 const userLoginReducer = (state = initialState, action) => {

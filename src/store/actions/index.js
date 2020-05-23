@@ -26,16 +26,25 @@ export {
 
 export {
     callGetPermit,
-    postPermits,
+    callPostPermit,
     getPermitsFail,
     postPermitsFail
 
 } from './permit';
 
 export {
-    getUser,
+    
     postUsers,
+    loginUserSuccess,
+    registerUserSuccess,
     getUserFail,
-    setUserFail
+    setUserFail,
+    confirmSignUp,
+    signUp,
+    signIn,
+    confirmTheSignUp,
+    signOut,
+    getUser,
+    callRegisterUser
 
 } from './user'

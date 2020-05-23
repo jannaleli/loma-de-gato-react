@@ -87,56 +87,35 @@ export const postPermitsSuccess = () => {
 };
 
 
-export const callPostDocument = (       username,
-    user_id,
-    approval_date,
-    business_activity,
-    business_building_no,
-    business_name,
-    business_street,
-    capitalization,
-    ctc_no,
-    gross_sale,
-    lessor_barangay,
-    lessor_bldg_no,
-    lessor_city,
-    lessor_emailaddr,
-    lessor_name,
-    lessor_province,
-    lessor_street,
-    lessor_subdv,
-    monthly_rental,
-    sec_no,
-    status,
-    no_of_unit) => {
-
-   
+export const callPostPermit = (  permitInfo ) => {
+    console.log('sending out the username out')
+   console.log(permitInfo.username)
 
     const params = {
         body : {
-            'user_id': user_id,
-            'username': username,
+            'user_id': permitInfo.user_id,
+            'username': permitInfo.username,
             'attachment_id': 'attachment_id',
-            'sec_no': sec_no,
-            'business_building_no': business_building_no,
-            'business_street': business_street,
-            'business_activity': business_activity,
-            'business_name': business_name,
-            'capitalization': capitalization,
-            'ctc_no': ctc_no,
-            'lessor_barangay': lessor_barangay,
-            'lessor_bldg_no': lessor_bldg_no,
-            'lessor_city': lessor_city,
-            'lessor_emailaddr': lessor_emailaddr,
-            'lessor_name': lessor_name,
-            'lessor_province': lessor_province,
-            'lessor_street': lessor_street,
-            'lessor_subdv': lessor_subdv,
-            'monthly_rental': monthly_rental,
-            'no_units': no_of_unit,
-            'status': status,
-            'gross_sale': gross_sale,
-            'approval_date': approval_date
+            'sec_no': permitInfo.sec_no,
+            'business_building_no': permitInfo.business_building_no,
+            'business_street': permitInfo.business_street,
+            'business_activity': permitInfo.business_activity,
+            'business_name': permitInfo.business_name,
+            'capitalization': permitInfo.capitalization,
+            'ctc_no': permitInfo.ctc_no,
+            'lessor_barangay': permitInfo.lessor_barangay,
+            'lessor_bldg_no': permitInfo.lessor_bldg_no,
+            'lessor_city': permitInfo.lessor_city,
+            'lessor_emailaddr': permitInfo.lessor_emailaddr,
+            'lessor_name': permitInfo.lessor_name,
+            'lessor_province': permitInfo.lessor_province,
+            'lessor_street': permitInfo.lessor_street,
+            'lessor_subdv': permitInfo.lessor_subdv,
+            'monthly_rental': permitInfo.monthly_rental,
+            'no_units': permitInfo.no_of_unit,
+            'status': permitInfo.status,
+            'gross_sale': permitInfo.gross_sale,
+            'approval_date': permitInfo.approval_date
         },
         headers : {
             'Content-Type': 'application/json',
