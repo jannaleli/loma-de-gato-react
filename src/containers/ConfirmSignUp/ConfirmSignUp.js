@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-import classes from './Login.css';
+import classes from './ConfirmSignUp.css';
 class Login extends Component {
     state = {
         confirmCode: null,
@@ -19,7 +19,7 @@ class Login extends Component {
 
         switch(type){
             case 'Confirm Code': return this.setState({
-                confirmCode_error : val
+                confirmCode : val
             }); 
 
        
@@ -32,14 +32,15 @@ class Login extends Component {
         console.log('clickApplyPermit')
         console.log(this.state.reason)
         console.log(this.state.governmentId)
+        this.props.confirmCode(this.props.userInfo,this.state.confirmCode )
   
     }
     render () {
        
-        return        <div className={classes.Login}>     <form noValidate autoComplete="off">
+        return        <div className={classes.ConfirmSignUp}>     <form noValidate autoComplete="off">
 
            
-       <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
+       <TextField error={this.state.confirmCode_error} id="confirm_code" label="Confirm Code" onChange={(value) =>this.onChangeTextField(value, 'Confirm Code')}/>
 
        <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                 Submit
@@ -51,18 +52,18 @@ class Login extends Component {
 };
 
 
-const mapStateToProps = state => {
-    return {
-        permit: state.userlogin.permit,
-        error: state.userlogin.error
-    };
-}
+// const mapStateToProps = state => {
+//     return {
+   
+//         error: state.userlogin.error
+//     };
+// }
 
 const mapDispatchToProps = dispatch => {
     return {
-        confirmCode: () => dispatch(actions.getUser())
+        confirmCode: (userInfo, code) => dispatch(actions.confirmTheSignUp(userInfo,code))
     }
 }
 
 
-    export default connect(mapStateToProps,mapDispatchToProps)(Login);
+    export default connect(null,mapDispatchToProps)(Login);

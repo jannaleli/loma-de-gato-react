@@ -58,18 +58,18 @@ class Documents extends Component {
     render () {
        
         return <React.Fragment>
-                     <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
+            <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
   
-  <ApplyClearance />
-</Modal>
-<Modal show={this.state.applyPermitOpen} modalClosed={this.clickApplyPermitClose}>
+            <ApplyClearance />
+            </Modal>
+            <Modal show={this.state.applyPermitOpen} modalClosed={this.clickApplyPermitClose}>
 
-  <ApplyPermit />
-</Modal>
-<Modal show={this.state.checkStatusOpen} modalClosed={this.clickCheckStatusClose}>
-         
-  <CheckStatus />
-</Modal>
+            <ApplyPermit />
+            </Modal>
+            <Modal show={this.state.checkStatusOpen} modalClosed={this.clickCheckStatusClose}>
+                    
+            <CheckStatus />
+            </Modal>
              <div className={classes.Documents}>
 
         <Button variant="contained" onClick={this.clickApplyClearance} color="primary">

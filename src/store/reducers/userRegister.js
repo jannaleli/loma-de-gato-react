@@ -13,6 +13,7 @@ const initialState = {
     saveDataError: false
 };
 const setSaveDataSuccess = (state, action) => {
+    console.log('SUCCESS')
     return updateObject(state, {saveDataSuccess: true, saveData: false, confirmSignUp: false, confirmSignUpError: false, confirmSignUpSuccess: false, errorSignUp: false, successSignUp: false});
 };
 const setSaveDataError = (state, action)=> {
@@ -46,6 +47,7 @@ const setUsers = (state, action) => {
 };
 
 const setConfirmSignUp = (state, action) => {
+    console.log('setting confirm sign up to be true')
     return  updateObject(state , {confirmSignUp: true})
 }
 
@@ -59,8 +61,8 @@ const userRegisterReducer = (state = initialState, action) => {
         case actionTypes.CONFIRM_SIGN_UP_ERROR: return confirmSignUpError(state, action);
         case actionTypes.SAVE_DATA_SUCCESS: return setSaveDataSuccess(state, action);
         case actionTypes.SAVE_DATA_ERROR: return setSaveDataError(state, action);
-        case actionTypes.SET_ERROR_SIGN_UP: return setSuccessSignUp(state, action);
-        case actionTypes.SET_SUCCESS_SIGN_UP: return setErrorSignUp(state,action);
+        case actionTypes.SET_ERROR_SIGN_UP: return setErrorSignUp(state,action); 
+        case actionTypes.SET_SUCCESS_SIGN_UP: return setSuccessSignUp(state, action);
         default: return state;
     }
 };

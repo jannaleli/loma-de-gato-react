@@ -1,6 +1,4 @@
 import * as actionTypes from './actionTypes';
-
-import axios from 'axios';
 import { Auth } from 'aws-amplify';
 import { randomString } from '../../shared/utility';
 import { API } from 'aws-amplify';
@@ -76,6 +74,7 @@ export const loginUserSuccess = () => {
 };
 
 export const registerUserSuccess = () => {
+    console.log('Register User Access')
     return {
         type: actionTypes.SET_SUCCESS_USER
     };
@@ -108,26 +107,31 @@ export const confirmSignUpSuccess = ()  => {
     }
 }
 
-export const signUp = async (email, password) => {
+export const signUp =  (email, password) => {
+
     return async (dispatch) => {
         try {
+            console.log('register')
+            console.log(email)
+            console.log(password)
             const user = await Auth.signUp({
-                email,
-                password
+              username:  email,
+              password:  password
             });
             console.log({ user });
-            confirmTheSignUp();
-    
+     
+            dispatch(confirmSignUp())
            
         } catch (error) {
             console.log('error signing up:', error);
-            dispatch(setUserFail(error.response))
+            dispatch(setUserFail(error))
         }
     }
 
 }
 
-export  const signIn = async (email, password) => {
+export  const signIn =  (email, password) => {
+
     return async (dispatch) => {
         try {
             const user = await Auth.signIn(email, password);
@@ -140,11 +144,12 @@ export  const signIn = async (email, password) => {
 
 }
 
-export  const confirmTheSignUp = async (userInfo,code) => {
+export  const confirmTheSignUp =  (userInfo,code) => {
     return async (dispatch) => {
         try {
-            await Auth.confirmSignUp(userInfo.username, code);
-            callRegisterUser(userInfo);
+            await Auth.confirmSignUp(userInfo.email, code);
+            console.log('when did you happen')
+            dispatch(callRegisterUser(userInfo));
           } catch (error) {
               console.log('error confirming sign up', error);
               dispatch(setUserFail(error))
@@ -165,30 +170,48 @@ export  const signOut = async () => {
 };
 
 export const callRegisterUser = ( userInfo) => {
-           
+           console.log(userInfo.email)
+           console.log(userInfo.password)
+           console.log(userInfo.address)
+           console.log( userInfo.birthDate)
+           console.log(userInfo.firstName)
+           console.log(userInfo.lastName)
+           console.log(userInfo.phone)
+           console.log(userInfo.zipNumber)
+           console.log(userInfo.civilStatus)
+           console.log(userInfo.tinNumber)
+           console.log(userInfo.birthPlace)
+           console.log(userInfo.weight)
+           console.log(userInfo.height)
+           console.log(userInfo.phone)
+           console.log(userInfo.profession)
+           console.log(userInfo.grossIncome)
+           console.log( userInfo.gender)
+
+
 
     const params = {
         body : {
-            'user_id': userInfo.emailaddr,
-            'username': userInfo.username ,
+            'user_id': userInfo.email,
+            'username': userInfo.email ,
             'password': userInfo.password,
             'address': userInfo.address,
-            'birthdate': userInfo.birthdate,
-            'createdate': userInfo.createdate,
-            'firstname': userInfo.firstname,
-            'lastname': userInfo.lastname,
-            'mobilenumber': userInfo.mobilenumber,
-            'zipcode': userInfo.zipcode,
-            'civil_status': userInfo.civil_status,
+            'birthdate': userInfo.birthDate,
+            'createdate': userInfo.birthDate,
+            'firstname': userInfo.firstName,
+            'lastname': userInfo.lastName,
+            'mobilenumber': userInfo.phone,
+            'zipcode': userInfo.zipNumber,
+            'civil_status': userInfo.civilStatus,
             'ctc_no': randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
-            'tin_no': userInfo.tin_no,
-            'place_of_birth': userInfo.place_of_birth,
+            'tin_no': userInfo.tinNumber,
+            'place_of_birth': userInfo.birthPlace,
             'weight': userInfo.weight,
             'height': userInfo.height,
             'control_no': randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
-            'contact_no': userInfo.contact_no,
+            'contact_no': userInfo.phone,
             'profession': userInfo.profession,
-            'gross_income': userInfo.gross_income,
+            'gross_income': userInfo.grossIncome,
             'attachment_id': 'hello',
             'gender': userInfo.gender,
             'status': 'NEW'
@@ -203,16 +226,22 @@ export const callRegisterUser = ( userInfo) => {
             'Connection': 'keep-alive',
         },
     };
+    console.log( params);
     return dispatch => {
+        console.log( 'calling the API')
+        console.log( LOMA_API_NAME)
+        console.log( USER_PATH)
         API
         .post(LOMA_API_NAME, USER_PATH, params)
         .then(response => {
           // Add your code here
+          console.log(response)
+          console.log('what is happening here')
           dispatch(registerUserSuccess());
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(setUserFail(error.response));
+          console.log(error);
+          dispatch(setUserFail(error));
         });
     };
 

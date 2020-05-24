@@ -12,6 +12,7 @@ import Modal from '../../components/UI/Modal/Modal';
 
 class Register extends Component {
     state = {
+        confirmSignUp: false,
         submit: false,
         userInfo : {
             email: null,
@@ -22,7 +23,7 @@ class Register extends Component {
             birthDate:null,
             birthPlace: null,
             gender: null,
-            civilService: null,
+            civilStatus: null,
             address: null,
             zipNumber: null,
             grossIncome: null,
@@ -38,7 +39,7 @@ class Register extends Component {
             birthDate_error:null,
             birthPlace_error: null,
             gender_error: null,
-            civilService_error: null,
+            civilStatus_error: null,
             address_error: null,
             zipNumber_error: null,
             grossIncome_error: null,
@@ -106,7 +107,7 @@ class Register extends Component {
             }); 
             case 'Civil Status': 
            
-            oldUserInfo.civilService = val
+            oldUserInfo.civilStatus = val
             return this.setState({
                 userInfo:  oldUserInfo
             }); 
@@ -157,45 +158,52 @@ class Register extends Component {
      
     }
     submitUser = () => {
-        this.props.registerUser(this.state.userInfo)
+       // this.props.registerUser(this.state.userInfo)
     }
     clickSubmit = () => {
         console.log('clickApplyPermit')
-        console.log(this.state.reason)
-        console.log(this.state.governmentId)
+        console.log(this.state.userInfo.email)
+        console.log(this.state.userInfo.password)
         //this.props.registerUser(this.state.userInfo)
-      //  this.props.signUpAWS(this.state.userInfo.email, this.state.userInfo.password)
+       this.props.signUpAWS(this.state.userInfo.email, this.state.userInfo.password)
       this.setState({
         submit:  true
     }); 
 
         
     }
+
+    confirmSignUpClose = () => {
+        this.setState({
+            confirmSignUp:  false
+        }); 
+    }
+
+
     render () {
 
         if(this.state.submit) {
             this.submitUser(this.state.userInfo.email, this.state.userInfo.password)
         }
 
-
-        if(this.props.saveDataSuccess) {
-            //Build success message here :) And then close all the modals or reload the page maybe?
-        }
-       
+        console.log('Register')
+      
+        console.log(this.props.confirmSignUp)
+        console.log(this.props.confirmSignUpSuccess )
         return  <div className={classes.Register}>
-                <h1>ApplyClearance</h1>
+                <h1>Register</h1>
 
-                <Modal show={  this.props.confirmSignUp} modalClosed={this.clickCheckStatusClose}>
+                <Modal show={this.props.confirmSignUp} modalClosed={this.confirmSignUpClose}>
          
-                <ConfirmSignUp />
+                         <ConfirmSignUp userInfo={this.state.userInfo} modalClosed={this.confirmSignUpClose} />
                 </Modal>
               
-                <Modal show={  this.props.saveDataSuccess} modalClosed={this.clickCheckStatusClose}>
+                {/* <Modal show={this.props.saveDataSuccess} modalClosed={this.clickCheckStatusClose}>
          
                   {//Put success message here 
                   }
                  </Modal>
-          
+           */}
            
             <form noValidate autoComplete="off">
        
@@ -209,7 +217,7 @@ class Register extends Component {
            <TextField error={this.state.birthDate_error} id="birthDate" label="Birth Date" onChange={(value) =>this.onChangeTextField(value, 'Birth Date')}  />
            <TextField error={this.state.birthPlace_error} id="birthPlace" label="Birth Place" onChange={(value) =>this.onChangeTextField(value, 'Birth Place')} />
            <TextField error={this.state.gender_error} id="gender" label="Gender" onChange={(value) =>this.onChangeTextField(value, 'Gender')} />
-           <TextField error={this.state.civilService_error} id="civilService" label="Civil Status" onChange={(value) =>this.onChangeTextField(value, 'Civil Status')} />
+           <TextField error={this.state.civilStatus_error} id="civilService" label="Civil Status" onChange={(value) =>this.onChangeTextField(value, 'Civil Status')} />
            <TextField error={this.state.address_error} id="address" label="Address" onChange={(value) =>this.onChangeTextField(value, 'Address')} />
            <TextField error={this.state.zipNumber_error} id="zipNumber" label="Zip Number" onChange={(value) =>this.onChangeTextField(value, 'Zip Number')}  />
            <TextField error={this.state.grossIncome_error} id="grossIncome" label="Gross Income" onChange={(value) =>this.onChangeTextField(value, 'Gross Income')} />
@@ -245,8 +253,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         registerUser: (userInfo) => dispatch(actions.callRegisterUser(userInfo)),
-        signUpAWS: (email, password) => dispatch(actions.signUp(email, password)),
-        confirmSignUp: () => dispatch(actions.confirmSignUp())
+        signUpAWS: (email, password) => dispatch(actions.signUp(email, password))
+        
     }
 }
 
