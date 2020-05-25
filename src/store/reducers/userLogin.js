@@ -12,7 +12,7 @@ const setUsers = (state, action) => {
     return updateObject (
         state, {
             user: 
-                action.user
+                action.users
             
         }
     )

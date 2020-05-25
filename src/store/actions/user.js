@@ -135,7 +135,8 @@ export  const signIn =  (email, password) => {
     return async (dispatch) => {
         try {
             const user = await Auth.signIn(email, password);
-            callGetUser(email);
+            console.log(user)
+            dispatch(callGetUser(email));
         } catch (error) {
             console.log('error signing in', error);
             dispatch(getUserFail(error));
@@ -250,7 +251,8 @@ export const callRegisterUser = ( userInfo) => {
 
 export const callGetUser = (username) => {
            
-
+    const queryParams =  USER_PATH  + '/' +  username
+    console.log(queryParams)
     const params = {
         headers : {
             'Content-Type': 'application/json',
@@ -264,14 +266,15 @@ export const callGetUser = (username) => {
     };
     return dispatch => {
         API
-        .get(LOMA_API_NAME, USER_PATH  + '/' + { username }, params)
+        .get(LOMA_API_NAME, queryParams, params)
         .then(response => {
           // Add your code here
-          dispatch(getUser(response.data));
+          console.log(response)
+          dispatch(getUser(response));
         })
         .catch(error => {
-          console.log(error.response);
-          dispatch(getUserFail(error.response));
+          console.log(error);
+          dispatch(getUserFail(error));
        });
     };
 

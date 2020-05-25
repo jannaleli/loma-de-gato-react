@@ -33,9 +33,8 @@ class Login extends Component {
      
     }
     clickSubmit = () => {
-        console.log('clickApplyPermit')
-        console.log(this.state.reason)
-        console.log(this.state.governmentId)
+    
+        this.props.signinUser(this.state.email, this.state.password)
   
     }
     render () {
