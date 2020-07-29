@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
+import Grid from "@material-ui/core/Grid";
 import Amplify, { API, Auth } from 'aws-amplify';
 import  classes  from './ApplyPermit.css';
 import TextField from '@material-ui/core/TextField';
@@ -183,12 +184,16 @@ class ApplyPermit extends Component {
     render () {
        
         return <div className={classes.ApplyPermit}>
-            <h1>ApplyPermit</h1>
+            <h1>Apply Permit</h1>
 
         
             <form noValidate autoComplete="off">
+            <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.sec_number_error} id="sec_number" label="SEC Number" onChange={(value) =>this.onChangeTextField(value, 'SEC Number')}/>
+           </Grid>
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.business_name_error} id="business_name" label="Business Name" onChange={(value) =>this.onChangeTextField(value, 'Business Name')} />
+           </Grid>
            <TextField error={this.state.business_activity_error} id="business_activity" label="Business Activity" onChange={(value) =>this.onChangeTextField(value, 'Business Activity')} />
            <TextField error={this.state.no_of_units_error} id="no_of_units" label="No. of Units"  onChange={(value) =>this.onChangeTextField(value, 'No. of Units')} />
            <TextField error={this.state.street_error} id="street" label="Street" onChange={(value) =>this.onChangeTextField(value, 'Street')}  />
