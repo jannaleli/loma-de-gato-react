@@ -186,34 +186,83 @@ class ApplyPermit extends Component {
         return <div className={classes.ApplyPermit}>
             <h1>Apply Permit</h1>
 
-        
+            <div className={classes.Scroll}>
             <form noValidate autoComplete="off">
             <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.sec_number_error} id="sec_number" label="SEC Number" onChange={(value) =>this.onChangeTextField(value, 'SEC Number')}/>
            </Grid>
+
            <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.business_name_error} id="business_name" label="Business Name" onChange={(value) =>this.onChangeTextField(value, 'Business Name')} />
            </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.business_activity_error} id="business_activity" label="Business Activity" onChange={(value) =>this.onChangeTextField(value, 'Business Activity')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.no_of_units_error} id="no_of_units" label="No. of Units"  onChange={(value) =>this.onChangeTextField(value, 'No. of Units')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.street_error} id="street" label="Street" onChange={(value) =>this.onChangeTextField(value, 'Street')}  />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.building_number_error} id="building_number" label="Building Number" onChange={(value) =>this.onChangeTextField(value, 'Building Number')}  />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.capitalization_error} id="capitalization" label="Capitalization" onChange={(value) =>this.onChangeTextField(value, 'Capitalization')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.gross_sale_error} id="gross_sale" label="Gross Sale" onChange={(value) =>this.onChangeTextField(value, 'Gross Sale')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_name_error} id="lessor_name" label="Lessor Name" onChange={(value) =>this.onChangeTextField(value, 'Lessor Name')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_email_error} id="lessor_email" label="Lessor Email" onChange={(value) =>this.onChangeTextField(value, 'Lessor Email')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_building_number_error} id="lessor_building_number" label="Lessor Building Number" onChange={(value) =>this.onChangeTextField(value, 'Lessor Building Number')}  />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_city_error} id="lessor_city" label="Lessor City" onChange={(value) =>this.onChangeTextField(value, 'Lessor City')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_subdivision_error} id="lessor_subdivision" label="Lessor Subdivision"  onChange={(value) =>this.onChangeTextField(value, 'Lessor Subdivision')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_street_error} id="lessor_street" label="Lessor Street" onChange={(value) =>this.onChangeTextField(value, 'Lessor Street')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_barangay_error} id="lessor_barangay" label="Lessor Barangay" onChange={(value) =>this.onChangeTextField(value, 'Lessor Barangay')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.lessor_province_error} id="lessor_province_error" label="Lessor Province" onChange={(value) =>this.onChangeTextField(value, 'Lessor Province')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <TextField error={this.state.monthly_rental_error} id="lessor_monthly_rental" label="Monthly Rental" onChange={(value) =>this.onChangeTextField(value, 'Monthly Rental')} />
+           </Grid>
+
+           <Grid container direction={"column"} spacing={1}>
            <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
                 </Button>
+           </Grid>
        </form>
-
+</div>
             </div>;
     } 
 };

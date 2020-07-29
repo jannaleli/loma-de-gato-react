@@ -1,5 +1,11 @@
 .ApplyPermit {
     text-align: center;
-    width: 80%;
+    width: 100%;
     margin: auto;
+
+}
+
+.Scroll {
+    max-height: 500px;
+    overflow-y: scroll;
 }
