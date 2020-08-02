@@ -8,7 +8,7 @@ import ApplyClearance from '../ApplyClearance/ApplyClearance';
 import ApplyPermit from '../ApplyPermit/ApplyPermit';
 import CheckStatus from '../CheckStatus/CheckStatus';
 import Modal from '../../components/UI/Modal/Modal';
-
+import Grid from "@material-ui/core/Grid";
 class Documents extends Component {
 
     state = {
@@ -71,16 +71,18 @@ class Documents extends Component {
             <CheckStatus />
             </Modal>
              <div className={classes.Documents}>
-
+             <Grid container justify="center" spacing={1}>
         <Button variant="contained" onClick={this.clickApplyClearance} color="primary">
              Apply Clearance
-        </Button><br />
+        </Button></Grid><br />
+        <Grid container justify="center" spacing={1}>
         <Button variant="contained" onClick={this.clickApplyPermit}  color="primary">
              Apply Permit
-        </Button><br />
+        </Button></Grid><br />
+        <Grid container justify="center" spacing={1}>
         <Button variant="contained" onClick={this.clickCheckStatus}  color="primary">
              Check Status
-        </Button>
+        </Button></Grid>
 
         </div>
         </React.Fragment>;

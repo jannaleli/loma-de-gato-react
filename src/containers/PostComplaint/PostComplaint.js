@@ -4,6 +4,7 @@ import * as actions from '../../store/actions/index';
 import Amplify, { API, Auth } from 'aws-amplify';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
 class PostComplaint extends Component {
     state = {
         complaint_id: null,
@@ -59,15 +60,23 @@ class PostComplaint extends Component {
     render () {
        
         return <div><h1>PostComplaint</h1>
-        
+        <Grid container justify="center" spacing={1}>
         <TextField error={this.state.complaint_desc_error} id="complaint_desc" label="Complaint Description" onChange={(value) =>this.onChangeTextField(value, 'Complaint Description')}/>
+        </Grid>
+        <Grid container justify="center" spacing={1}>
            <TextField error={this.state.latitude_error} id="latitude" label="Latitude" onChange={(value) =>this.onChangeTextField(value, 'Latitude')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.longitude_error} id="longitude" label="Longitude" onChange={(value) =>this.onChangeTextField(value, 'Longitude')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.type_error} id="type" label="Type"  onChange={(value) =>this.onChangeTextField(value, 'Type')} />
+           </Grid> <br></br>
+           <Grid container justify="center" spacing={1}>
            <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
         </Button>
-          
+        </Grid>
           </div>;
     } 
 };

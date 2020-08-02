@@ -16,7 +16,7 @@ import userPermitsReducer from './store/reducers/userPermit';
 import userRegisterReducer from './store/reducers/userRegister';
 import documentsReducer from './store/reducers/document';
 import App from './App';
-
+import { ThemeProvider, StyleReset } from 'atomize';
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
 const rootReducer = combineReducers({
@@ -32,6 +32,12 @@ const rootReducer = combineReducers({
   document: documentsReducer
 
 });
+const theme = {
+  colors: {
+    primary: 'tomato',
+    accent: 'yellow',
+  },
+};
 
 const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk)
@@ -40,7 +46,10 @@ const app = (
  
   <Provider store={store}>
   <BrowserRouter>
+  <ThemeProvider theme={theme}>
+    <StyleReset />
       <App />
+  </ThemeProvider>
   </BrowserRouter>
   </Provider>
 

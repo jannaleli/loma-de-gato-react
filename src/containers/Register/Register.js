@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import ConfirmSignUp from '../ConfirmSignUp/ConfirmSignUp';
 import Modal from '../../components/UI/Modal/Modal';
-
+import Grid from "@material-ui/core/Grid";
 class Register extends Component {
     state = {
         confirmSignUp: false,
@@ -208,28 +208,62 @@ class Register extends Component {
             <form noValidate autoComplete="off">
        
 
-               
+            <Grid container justify="center" spacing={1}>    
            <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.firstName_error} id="firstName" label="First Name" onChange={(value) =>this.onChangeTextField(value, 'First Name')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.lastName_error} id="lastName" label="Last Name"  onChange={(value) =>this.onChangeTextField(value, 'Last Name')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.phone_error} id="phone" label="Phone" onChange={(value) =>this.onChangeTextField(value, 'Phone')}  />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.birthDate_error} id="birthDate" label="Birth Date" onChange={(value) =>this.onChangeTextField(value, 'Birth Date')}  />
+           </Grid>
+           
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.birthPlace_error} id="birthPlace" label="Birth Place" onChange={(value) =>this.onChangeTextField(value, 'Birth Place')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.gender_error} id="gender" label="Gender" onChange={(value) =>this.onChangeTextField(value, 'Gender')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.civilStatus_error} id="civilService" label="Civil Status" onChange={(value) =>this.onChangeTextField(value, 'Civil Status')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.address_error} id="address" label="Address" onChange={(value) =>this.onChangeTextField(value, 'Address')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.zipNumber_error} id="zipNumber" label="Zip Number" onChange={(value) =>this.onChangeTextField(value, 'Zip Number')}  />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.grossIncome_error} id="grossIncome" label="Gross Income" onChange={(value) =>this.onChangeTextField(value, 'Gross Income')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.tinNumber_error} id="tinNumber" label="TIN"  onChange={(value) =>this.onChangeTextField(value, 'TIN')} />
+           </Grid>
+           <Grid container justify="center" spacing={1}>
            <TextField error={this.state.profession_error} id="profession" label="Profession" onChange={(value) =>this.onChangeTextField(value, 'Profession')} />
+           </Grid>
+           <Grid container justify="center" spacing={3}>
            <TextField error={this.state.weight_error} id="weight" label="Weight" onChange={(value) =>this.onChangeTextField(value, 'Weight')} />
+           </Grid>
+           <Grid container justify="center" spacing={3}>
            <TextField error={this.state.height_error} id="height" label="Height" onChange={(value) =>this.onChangeTextField(value, 'Height')} />
-      
+           </Grid>
        </form>
+       <br></br>
+       <Grid container justify="center" spacing={3}>
        <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
                 </Button>
+                </Grid>
              </div>;
     } 
 };

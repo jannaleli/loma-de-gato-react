@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
 import { randomString } from '../../shared/utility'
 class ApplyClearance extends Component {
     state = {
@@ -51,8 +52,9 @@ class ApplyClearance extends Component {
 
         return <div className={classes.ApplyClearance}>
                 <h1>ApplyClearance</h1>
+                <div className={classes.Scroll}>
                 <form noValidate autoComplete="off">
-        
+                <Grid container justify="center" spacing={1}>
                  <Select defaultValue="Employment" id="reason"  onChange={(value) =>this.onChangeTextField(value, 'Reason')}>
                         <MenuItem value="">
                             <em>None</em>
@@ -61,11 +63,19 @@ class ApplyClearance extends Component {
                         <MenuItem value={"Business"}>Business</MenuItem>
 
                 </Select>
+                </Grid>
+
+                <Grid container justify="center" spacing={1}>
                  <TextField error={this.state.governmentId_error} id="government_id" label="Government Id"  onChange={(value) =>this.onChangeTextField(value, 'Government ID')} />
+                 </Grid>
+                 <br></br>
+                 <Grid container justify="center" spacing={1}>
                  <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
                 </Button>
+                </Grid>
                 </form>
+                </div>
              </div>;
     }
 };

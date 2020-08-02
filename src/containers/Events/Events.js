@@ -12,6 +12,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import EventSummary from '../../components/EventSummary/EventSummary';
 import Modal from '../../components/UI/Modal/Modal';
+import ApplyClearance from '../ApplyClearance/ApplyClearance';
+import Documents from '../Documents/Documents';
+import ViewComplaint from '../ViewComplaint/ViewComplaint'
 
 
 
@@ -63,6 +66,7 @@ class Events extends Component {
             this.props.events ? 
 
             <React.Fragment>
+              
                       <Modal show={this.state.closed} modalClosed={this.ModalClosed}>
                         {console.log(this.state.attachment_id)}
               <EventSummary
@@ -89,7 +93,8 @@ class Events extends Component {
               </TableBody>
             </Table>
           </TableContainer>
-
+          <Documents />
+    
             </React.Fragment>
              : 
           

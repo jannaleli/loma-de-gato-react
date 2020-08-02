@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import classes from './Login.css';
+import Grid from "@material-ui/core/Grid";
 class Login extends Component {
     state = {
         email: null,
@@ -41,12 +42,18 @@ class Login extends Component {
        
         return        <div className={classes.Login}>     <form noValidate autoComplete="off">
 
-           
+<Grid container justify="center" spacing={0.5}>
        <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
+       </Grid>
+       <Grid container justify="center" spacing={0.5}>
        <TextField error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
+       </Grid>
+       <br></br>
+       <Grid container justify="center" spacing={0.2}>
        <Button variant="contained" color="primary" onClick={this.clickSubmit}>
                 Submit
             </Button>
+            </Grid>
    </form>
  
          </div>;

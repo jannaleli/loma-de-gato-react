@@ -3,3 +3,8 @@
     width: 80%;
     margin: auto;
 }
+
+.Scroll {
+    max-height: 500px;
+    overflow-y: scroll;
+}
