@@ -19,12 +19,14 @@ class Layout extends Component {
     render () {
         return (
             <React.Fragment>
-                <Toolbar isAuth={true/*this.props.isAuthenticated*/}
+               {/*this.props.isAuthenticated instead of true*/} 
+              {/* <Toolbar isAuth={true}
                 drawerToggleClicked={this.sideDrawerToggleHandler} />
                 <SideDrawer
-                    isAuth={true/*this.props.isAuthenticated*/}
+                    isAuth={true}
                     open={this.state.showSideDrawer}
-                    closed={this.sideDrawerClosedHandler} />
+                    closed={this.sideDrawerClosedHandler} /> */}
+
                  <main className={classes.Content}>
                     {this.props.children}
                 </main> 

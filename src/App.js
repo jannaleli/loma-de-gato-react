@@ -12,7 +12,9 @@ import Register from './containers/Register/Register';
 import Login from './containers/Login/Login';
 import CheckStatus from './containers/CheckStatus/CheckStatus';
 import PostComplaint from './containers/PostComplaint/PostComplaint';
- 
+import { Link, animateScroll as scroll } from "react-scroll";
+import NavigationBar from './components/Navigation/NavigationScroll/NavigationBar';
+import Section from './components/Navigation/NavigationScroll/Section';
 class App extends Component {
 
   componentDidMount () {
@@ -22,15 +24,15 @@ class App extends Component {
 
     let routes = (
       <Switch>
-        <Route path="/" exact component={Events} />
+        {/* <Route path="/" exact component={Events} />
         <Route path="/document" exact component={Documents} />
         <Route path="/complaint" exact component={ViewComplaint} />
-        <Route path="/contact" exact component={Contacts} />
+        <Route path="/contact" exact component={Contacts} /> */}
         <Route path="/apply-clearance" exact component={ApplyClearance} />
         <Route path="/apply-permit" exact component={ApplyPermit} />
         <Route path="/login" exact component={Login} />
-        <Route path="/check-status" exact component={CheckStatus} />
-        <Route path="/post-complaint" exact component={PostComplaint} />
+        {/* <Route path="/check-status" exact component={CheckStatus} />
+        <Route path="/post-complaint" exact component={PostComplaint} /> */}
         <Route path="/register" exact component={Register} />
         <Route path="/login" exact component={Login} />
         
@@ -38,14 +40,32 @@ class App extends Component {
       </Switch>
     );
 
-      
+  
+      let sections = (
+        <React.Fragment>
+        <Section
+          dark={true}
+          id="section1">
+       <Events />
+        
+        </Section>
+        <Section
+        dark={true}
+        id="section2"
+      >
+        <Documents />
+      </Section>
+        </React.Fragment>
 
- 
-
+      );
     return (
       <div>
+        
         <Layout>
-          {routes}
+         <NavigationBar />
+           {routes} 
+          {sections}
+         
         </Layout>
       </div>
     );

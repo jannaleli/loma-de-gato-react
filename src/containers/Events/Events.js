@@ -93,7 +93,7 @@ class Events extends Component {
               </TableBody>
             </Table>
           </TableContainer>
-          <Documents />
+
     
             </React.Fragment>
              : 

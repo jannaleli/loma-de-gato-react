@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import classes from './Markers.css'
+import classes from './Markers.css';
 const iconStyle = {  
   borderRadius: '10px',
   transform: 'matrix(-1, 0, 0, 1, 10, 0)'
