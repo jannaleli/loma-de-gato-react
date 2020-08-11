@@ -60,13 +60,15 @@ class App extends Component {
       );
     return (
       <div>
-        
-        <Layout>
+                <NavigationBar />
+           {routes} 
+          {sections} 
+        {/* <Layout>
          <NavigationBar />
            {routes} 
           {sections}
          
-        </Layout>
+        </Layout> */}
       </div>
     );
   }
