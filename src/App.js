@@ -15,6 +15,7 @@ import PostComplaint from './containers/PostComplaint/PostComplaint';
 import { Link, animateScroll as scroll } from "react-scroll";
 import NavigationBar from './components/Navigation/NavigationScroll/NavigationBar';
 import Section from './components/Navigation/NavigationScroll/Section';
+import MainContainer from './containers/MainContainer/MainContainer';
 class App extends Component {
 
   componentDidMount () {
@@ -46,8 +47,8 @@ class App extends Component {
         <Section
           dark={true}
           id="section1">
-       <Events />
-        
+       {/* <Events /> */}
+        <MainContainer />
         </Section>
         <Section
         dark={true}
