@@ -31,6 +31,14 @@ class MainContainer extends Component {
     }
     render () {
 
+        let urls = [{'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg', 'title': 'Apply Clearance', 'subtitle': 'Apply Barangay Clearance'},
+                      {'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_permit.jpg', 'title': 'Apply Permit', 'subtitle': 'Apply Business Permit'},
+                      {'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/check_status.jpg', 'title': 'Check Status', 'subtitle': 'Check Status'},
+                      {'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/create_map.jpg', 'title': 'Show Map', 'subtitle': 'Show Map'}]
+
+
+
+        
         return <div className={classes.MainContainer}>
             <Motion {...this.getSpringProps()}>
              {tweenCollection => {
@@ -45,7 +53,9 @@ class MainContainer extends Component {
                      opacity: tweenCollection.opacity,
                  };
                  return (
-                    <div className={classes.MainSubContainer}
+
+                    <React.Fragment>
+                   {/* <div className={classes.MainSubContainer}
                         onMouseOver={() => this.handleHover(true)}
                         onMouseOut={() => this.handleHover(false)}>
                         <div className={classes.MainImageContainer}>
@@ -54,15 +64,40 @@ class MainContainer extends Component {
                         src='https://tympanus.net/Development/HoverEffectIdeas/img/13.jpg'
                         className='img' />  
                         <div className={classes.Overlay}>
-                            <div className='title' style={styleTitle}>Your title</div>
+                            <div className='title' style={styleTitle}>{row.title}</div>
                             <div className='subtitle' style={styleSubtitle}>
-                                 <div className='subtitleText'>Your subtitle</div>
+                                 <div className='subtitleText'>{row.subtitle}</div>
                             </div>
                         </div>  
                         
                         </div>   
 
-                    </div>
+                    </div> */}
+
+                    { urls.map ( (row) =>  (
+                            <div className={classes.MainSubContainer}
+                            onMouseOver={() => this.handleHover(true)}
+                            onMouseOut={() => this.handleHover(false)}>
+                            <div className={classes.MainImageContainer}>
+                            <img
+                            style={styleImage}
+                            src={row.url}
+                            className='img' />  
+                            <div className={classes.Overlay}>
+                                <div className='title' style={styleTitle}>{row.title}</div>
+                                <div className='subtitle' style={styleSubtitle}>
+                                    <div className='subtitleText'>{row.subtitle}</div>
+                                </div>
+                            </div>  
+                            
+                            </div>   
+
+                        </div>
+         )
+
+        )}
+                    </React.Fragment>
+ 
                  );
 
              }
