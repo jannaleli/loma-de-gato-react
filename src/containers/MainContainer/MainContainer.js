@@ -81,6 +81,8 @@ class MainContainer extends Component {
                             <div className={classes.MainImageContainer}>
                             <img
                             style={styleImage}
+                            width={'500px'}
+                            height={'500px'}
                             src={row.url}
                             className='img' />  
                             <div className={classes.Overlay}>
