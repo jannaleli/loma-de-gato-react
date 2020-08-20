@@ -74,7 +74,7 @@ class MainContainer extends Component {
 
                     </div> */}
 
-                    { urls.map ( (row) =>  (
+               
                             <div className={classes.MainSubContainer}
                             onMouseOver={() => this.handleHover(true)}
                             onMouseOut={() => this.handleHover(false)}>
@@ -83,21 +83,19 @@ class MainContainer extends Component {
                             style={styleImage}
                             width={'500px'}
                             height={'500px'}
-                            src={row.url}
+                            src={this.props.url}
                             className='img' />  
                             <div className={classes.Overlay}>
-                                <div className='title' style={styleTitle}>{row.title}</div>
+                                <div className='title' style={styleTitle}>{this.props.title}</div>
                                 <div className='subtitle' style={styleSubtitle}>
-                                    <div className='subtitleText'>{row.subtitle}</div>
+                                    <div className='subtitleText'>{this.props.subtitle}</div>
                                 </div>
                             </div>  
                             
                             </div>   
 
                         </div>
-         )
-
-        )}
+      
                     </React.Fragment>
  
                  );

@@ -41,6 +41,13 @@ class App extends Component {
       </Switch>
     );
 
+        let urls = [{'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg', 'title': 'Apply Clearance', 'subtitle': 'Apply Barangay Clearance'},
+                      {'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_permit.jpg', 'title': 'Apply Permit', 'subtitle': 'Apply Business Permit'},
+                      {'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/check_status.jpg', 'title': 'Check Status', 'subtitle': 'Check Status'},
+                      {'url': 'https://barangay-api.s3-ap-southeast-1.amazonaws.com/create_map.jpg', 'title': 'Show Map', 'subtitle': 'Show Map'}]
+
+
+
   
       let sections = (
         <React.Fragment>
@@ -48,7 +55,11 @@ class App extends Component {
           dark={true}
           id="section1">
        {/* <Events /> */}
-        <MainContainer />
+       {      urls.map ( (row) =>  ( <MainContainer title={row.title} subtitle={row.subtitle} url={row.url} />  )
+                
+      )}
+       }
+      
         </Section>
         <Section
         dark={true}
