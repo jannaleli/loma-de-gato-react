@@ -81,7 +81,7 @@ class MainContainer extends Component {
                             <div className={classes.MainImageContainer}>
                             <img
                             style={styleImage}
-                            width={'500px'}
+                            width={'700px'}
                             height={'500px'}
                             src={this.props.url}
                             className='img' />  
