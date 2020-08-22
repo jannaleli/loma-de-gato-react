@@ -74,6 +74,20 @@ class MainContainer extends Component {
 
                     </div> */}
 
+                            <div className={classes.Grid} >
+                                <figure className={[classes.Figure, classes.EffectSadie]}>
+
+                                    <img src={this.props.url} width={'700px'}
+                            height={'500px'}/>
+                                    <figcaption>
+                                        <h2 className={classes.EffectSadieH2}>this.props.title</h2>
+                                        <p className={classes.EffectSadieParagraph}>this.props.subtitle</p>
+                                    </figcaption>
+                                </figure>
+
+
+                            </div>
+
                
                             <div className={classes.MainSubContainer}
                             onMouseOver={() => this.handleHover(true)}
