@@ -16,12 +16,59 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import NavigationBar from './components/Navigation/NavigationScroll/NavigationBar';
 import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
+import Modal from '../src/components/UI/Modal/Modal';
 class App extends Component {
+
+  state = {
+    applyClearanceOpen: false,
+    applyPermitOpen: false,
+    checkStatusOpen: false
+}
+
+clickApplyClearance = () => {
+    console.log('Modal closed ');
+    this.setState({
+        applyClearanceOpen : true
+    });
+}
+
+clickApplyPermit = () => {
+    console.log('clickApplyPermit')
+    this.setState({
+        applyPermitOpen : true
+    }); 
+}
+
+clickCheckStatus = () => {
+    console.log('clickCheckStatus')
+    this.setState({
+        checkStatusOpen : true
+    }); 
+}
+
+clickApplyClearanceClose = () => {
+    this.setState({
+        applyClearanceOpen : false
+    }); 
+}
+
+clickApplyPermitClose = () => {
+    this.setState({
+        applyPermitOpen : false
+    }); 
+}
+
+clickCheckStatusClose = () => {
+    this.setState({
+        checkStatusOpen : false
+    }); 
+}
 
   componentDidMount () {
     
   }
   render () {
+
 
     let routes = (
       <Switch>
@@ -51,14 +98,29 @@ class App extends Component {
   
       let sections = (
         <React.Fragment>
+              <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
+  
+  <ApplyClearance />
+  </Modal>
+  <Modal show={this.state.applyPermitOpen} modalClosed={this.clickApplyPermitClose}>
+
+  <ApplyPermit />
+  </Modal>
+  <Modal show={this.state.checkStatusOpen} modalClosed={this.clickCheckStatusClose}>
+          
+  <CheckStatus />
+  </Modal>
         <Section
           dark={true}
           id="section1">
        {/* <Events /> */}
-       {      urls.map ( (row) =>  ( <MainContainer title={row.title} subtitle={row.subtitle} url={row.url} />  )
-                
-      )}
-       }
+       {/* {      urls.map ( (row) =>  ( <MainContainer title={row.title} subtitle={row.subtitle} url={row.url} />  )    )}
+       }*/}
+       <MainContainer title='Apply Clearance' subtitle='Apply Clearance' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg' clicked={() => this.clickApplyClearance} />
+       <MainContainer title='Apply Permit' subtitle='Apply Permit' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_permit.jpg' clicked={() => this.clickApplyPermit} />
+       <MainContainer title='Check Status' subtitle='Check status' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/check_status.jpg' clicked={() => this.clickCheckStatus} />
+       
+   
       
         </Section>
         <Section

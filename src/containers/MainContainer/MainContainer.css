@@ -129,7 +129,7 @@
     margin: 0;
 }
 
-.EffectSadie figcaption::before{
+.EffectSadie figcaption:before{
     position: absolute;
     top: 0;
     left: 0;
@@ -139,11 +139,13 @@
     background: -webkit-linear-gradient(top, rgba(72,76,97,0.8), rgba(72,76,97,0.8) 75%);
     content: '';
     opacity: 0;
+    -webkit-transform: translate3d(0,-50%,0);
     transform: translate3d(0, 50%, 0);
     transition: opacity 0.35s, transform 0.35s;
+    -webkit-transition: opacity 0.35s, transform 0.35s;
 }
 
-.EffectSadieH2 {
+.EffectSadie h2 {
     position: absolute;
     top: 50%;
     left: 0;
@@ -156,7 +158,7 @@
 
 }
 
-.EffectSadieParagraph {
+.EffectSadie p {
     position: absolute;
     bottom: 0;
     left: 0; 
@@ -167,15 +169,15 @@
     transition: opacity 0.35s, transform 0.35s;
 }
 
-.EffectSadieH2 hover figcaption::before {
+.EffectSadie h2:hover figcaption:before {
     color: #fff;
+    -webkit-transform: translate3d(0,-50%,0) translate(0,-40px,0);
     transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
-    opacity: 1;
-    transform: translate3d(0,0,0);
 }
 
-.EffectSadieParagraph hover {
+.EffectSadie p:hover {
     opacity: 1;
-    transform: translate3d(0,0,0)
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 

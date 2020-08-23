@@ -75,20 +75,22 @@ class MainContainer extends Component {
                     </div> */}
 
                             <div className={classes.Grid} >
-                                <figure className={[classes.Figure, classes.EffectSadie]}>
+                                <figure className={classes.EffectSadie}>
 
                                     <img src={this.props.url} width={'700px'}
-                            height={'500px'}/>
+                                    height={'500px'}
+                                    onClick={this.props.clicked}
+                                    style={{"pointer-events": "all"}} />
                                     <figcaption>
-                                        <h2 className={classes.EffectSadieH2}>this.props.title</h2>
-                                        <p className={classes.EffectSadieParagraph}>this.props.subtitle</p>
+                                        <h2 ><span>{this.props.title}</span></h2>
+                                        <p >{this.props.subtitle}</p>
                                     </figcaption>
                                 </figure>
 
 
                             </div>
 
-               
+{/*                
                             <div className={classes.MainSubContainer}
                             onMouseOver={() => this.handleHover(true)}
                             onMouseOut={() => this.handleHover(false)}>
@@ -106,9 +108,9 @@ class MainContainer extends Component {
                                 </div>
                             </div>  
                             
-                            </div>   
+                            </div>    
 
-                        </div>
+                        </div>*/}
       
                     </React.Fragment>
  
