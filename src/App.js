@@ -17,6 +17,17 @@ import NavigationBar from './components/Navigation/NavigationScroll/NavigationBa
 import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
 import Modal from '../src/components/UI/Modal/Modal';
+// import Modal from 'react-bootstrap/Modal';
+// import ModalDialog from 'react-bootstrap/ModalDialog';
+// import ModalHeader from 'react-bootstrap/ModalHeader';
+// import ModalTitle from 'react-bootstrap/ModalTitle';
+// import ModalBody from 'react-bootstrap/ModalBody';
+// import ModalFooter from 'react-bootstrap/ModalFooter';
+
+
+
+
+
 class App extends Component {
 
   state = {
