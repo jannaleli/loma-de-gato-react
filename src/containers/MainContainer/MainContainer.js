@@ -75,15 +75,15 @@ class MainContainer extends Component {
                     </div> */}
 
                             <div className={classes.Grid} >
-                                <figure className={classes.EffectSadie}>
+                                <figure className={classes.EffectSadie} onClick={this.props.clicked}>
 
                                     <img src={this.props.url} width={'700px'}
                                     height={'500px'}
                                     onClick={this.props.clicked}
-                                    style={{"pointer-events": "all"}} />
+                                    />
                                     <figcaption>
-                                        <h2 ><span>{this.props.title}</span></h2>
-                                        <p >{this.props.subtitle}</p>
+                                        <h2><span>{this.props.title}</span></h2>
+                                        <p>{this.props.subtitle}</p>
                                     </figcaption>
                                 </figure>
 
