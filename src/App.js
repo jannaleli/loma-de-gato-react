@@ -17,6 +17,7 @@ import NavigationBar from './components/Navigation/NavigationScroll/NavigationBa
 import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
 import Modal from '../src/components/UI/Modal/Modal';
+import swal from '@sweetalert/with-react';
 // import Modal from 'react-bootstrap/Modal';
 // import ModalDialog from 'react-bootstrap/ModalDialog';
 // import ModalHeader from 'react-bootstrap/ModalHeader';
