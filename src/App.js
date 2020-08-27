@@ -16,8 +16,9 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import NavigationBar from './components/Navigation/NavigationScroll/NavigationBar';
 import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
-import Modal from '../src/components/UI/Modal/Modal';
-import swal from '@sweetalert/with-react';
+// import Modal from '../src/components/UI/Modal/Modal';
+// import swal from '@sweetalert/with-react';
+ 
 // import Modal from 'react-bootstrap/Modal';
 // import ModalDialog from 'react-bootstrap/ModalDialog';
 // import ModalHeader from 'react-bootstrap/ModalHeader';
@@ -42,6 +43,8 @@ clickApplyClearance = () => {
     this.setState({
         applyClearanceOpen : true
     });
+
+ 
 }
 
 clickApplyPermit = () => {
@@ -112,7 +115,8 @@ clickCheckStatusClose = () => {
         <React.Fragment>
               <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
   
-  <ApplyClearance />
+      <ApplyClearance />
+   
   </Modal>
   <Modal show={this.state.applyPermitOpen} modalClosed={this.clickApplyPermitClose}>
 
