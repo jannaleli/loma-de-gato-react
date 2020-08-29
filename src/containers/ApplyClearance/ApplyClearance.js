@@ -9,6 +9,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
 import { randomString } from '../../shared/utility'
+import parentClass from '../ApplicationContainer/ApplicationContainer.css';
 class ApplyClearance extends Component {
     state = {
         reason: null,
@@ -50,7 +51,8 @@ class ApplyClearance extends Component {
 
     render () {
 
-        return <div className={classes.ApplyClearance}>
+        return <div className={parentClass.ApplicationContainer}>
+            <div className={classes.ApplyClearance}>
                 <h1>ApplyClearance</h1>
                 <div className={classes.Scroll}>
                 <form noValidate autoComplete="off">
@@ -76,7 +78,8 @@ class ApplyClearance extends Component {
                 </Grid>
                 </form>
                 </div>
-             </div>;
+             </div>
+    </div>;
     }
 };
 

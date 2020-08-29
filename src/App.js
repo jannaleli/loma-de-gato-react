@@ -12,11 +12,13 @@ import Register from './containers/Register/Register';
 import Login from './containers/Login/Login';
 import CheckStatus from './containers/CheckStatus/CheckStatus';
 import PostComplaint from './containers/PostComplaint/PostComplaint';
-import { Link, animateScroll as scroll } from "react-scroll";
+import { /*Link,*/ animateScroll as scroll } from "react-scroll";
 import NavigationBar from './components/Navigation/NavigationScroll/NavigationBar';
 import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
-// import Modal from '../src/components/UI/Modal/Modal';
+import Modal from '../src/components/UI/Modal/Modal';
+import Link from 'react-router-dom/Link';
+import { classes } from 'istanbul-lib-coverage';
 // import swal from '@sweetalert/with-react';
  
 // import Modal from 'react-bootstrap/Modal';
@@ -39,11 +41,15 @@ class App extends Component {
 }
 
 clickApplyClearance = () => {
-    console.log('Modal closed ');
-    this.setState({
-        applyClearanceOpen : true
-    });
+    // console.log('Modal closed ');
+    // this.setState({
+    //     applyClearanceOpen : true
+    // });
+    <Link
+    activeClass={classes.}
+    to="/apply-clearance" /
 
+  >
  
 }
 

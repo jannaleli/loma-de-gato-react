@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Link from 'react-router-dom/Link';
 
-
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { /*Link,*/ animateScroll as scroll } from 'react-scroll';
 import classes from './NavigationBar.css';
 export default class NavigationBar extends Component {
   scrollToTop = () => {
@@ -20,15 +20,13 @@ export default class NavigationBar extends Component {
             alt="Logo"
             onClick={this.scrollToTop}
           /> */}
+     
           <ul className={classes.NavigationUnordered}> { /*className={classes.nav-items}*/}
           <li className={classes.NavigationList}>
               <Link
                 activeClass={classes.active}
-                to="section1"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
+                to="/apply-clearance"
+           
               >
                 Events
               </Link>
