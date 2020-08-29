@@ -18,7 +18,7 @@ import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
 import Modal from '../src/components/UI/Modal/Modal';
 import Link from 'react-router-dom/Link';
-import { classes } from 'istanbul-lib-coverage';
+ 
 // import swal from '@sweetalert/with-react';
  
 // import Modal from 'react-bootstrap/Modal';
