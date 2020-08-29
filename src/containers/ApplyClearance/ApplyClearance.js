@@ -8,7 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
-import { randomString } from '../../shared/utility'
+import { randomString } from '../../shared/utility';
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import parentClass from '../ApplicationContainer/ApplicationContainer.css';
 class ApplyClearance extends Component {
     state = {
@@ -52,7 +53,7 @@ class ApplyClearance extends Component {
     render () {
 
         return <div className={parentClass.ApplicationContainer}>
-            <div className={classes.ApplyClearance}>
+            {/* <div className={classes.ApplyClearance}> */}
                 <h1>ApplyClearance</h1>
                 <div className={classes.Scroll}>
                 <form noValidate autoComplete="off">
@@ -78,7 +79,7 @@ class ApplyClearance extends Component {
                 </Grid>
                 </form>
                 </div>
-             </div>
+             {/* </div> */}
     </div>;
     }
 };
@@ -98,4 +99,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-    export default connect(mapStateToProps,mapDispatchToProps)(ApplyClearance);
+    export default withRouter(connect(mapStateToProps,mapDispatchToProps)(ApplyClearance));

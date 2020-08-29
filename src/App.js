@@ -40,31 +40,24 @@ class App extends Component {
     checkStatusOpen: false
 }
 
+
 clickApplyClearance = () => {
-    // console.log('Modal closed ');
+
     // this.setState({
     //     applyClearanceOpen : true
     // });
-    <Link
-    activeClass={classes.}
-    to="/apply-clearance" /
+    this.props.history.push('/apply-clearance');
 
-  >
+  
  
 }
 
 clickApplyPermit = () => {
-    console.log('clickApplyPermit')
-    this.setState({
-        applyPermitOpen : true
-    }); 
+  this.props.history.push('/apply-permit');
 }
 
 clickCheckStatus = () => {
-    console.log('clickCheckStatus')
-    this.setState({
-        checkStatusOpen : true
-    }); 
+  this.props.history.push('/check-status');
 }
 
 clickApplyClearanceClose = () => {
@@ -100,8 +93,8 @@ clickCheckStatusClose = () => {
         <Route path="/apply-clearance" exact component={ApplyClearance} />
         <Route path="/apply-permit" exact component={ApplyPermit} />
         <Route path="/login" exact component={Login} />
-        {/* <Route path="/check-status" exact component={CheckStatus} />
-        <Route path="/post-complaint" exact component={PostComplaint} /> */}
+         <Route path="/check-status" exact component={CheckStatus} />
+        {/*<Route path="/post-complaint" exact component={PostComplaint} /> */}
         <Route path="/register" exact component={Register} />
         <Route path="/login" exact component={Login} />
         
