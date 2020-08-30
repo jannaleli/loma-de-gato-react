@@ -21,7 +21,7 @@ export default class NavigationBar extends Component {
             onClick={this.scrollToTop}
           /> */}
      
-          <ul className={classes.NavigationUnordered}> { /*className={classes.nav-items}*/}
+          <ul className={classes.NavigationUnordered}> 
           <li className={classes.NavigationList}>
               <Link
                 activeClass={classes.active}
@@ -43,7 +43,7 @@ export default class NavigationBar extends Component {
                 Documents
               </Link>
             </li>
-            <li className={classes.NavigationList}> {/* className={classes.nav-item}*/}
+            <li className={classes.NavigationList}> 
               <Link
                 activeClass={classes.active}
                 to="section3"
@@ -55,7 +55,7 @@ export default class NavigationBar extends Component {
                Complaints
               </Link>
             </li>
-            <li className={classes.NavigationList}> {/* className={classes.nav-item}*/}
+            <li className={classes.NavigationList}> 
               <Link
                 activeClass={classes.active}
                 to="section4"

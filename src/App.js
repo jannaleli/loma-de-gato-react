@@ -18,6 +18,7 @@ import Section from './components/Navigation/NavigationScroll/Section';
 import MainContainer from './containers/MainContainer/MainContainer';
 import Modal from '../src/components/UI/Modal/Modal';
 import Link from 'react-router-dom/Link';
+import ApplicationContainer from './containers/ApplicationContainer/ApplicationContainer';
  
 // import swal from '@sweetalert/with-react';
  
@@ -41,42 +42,42 @@ class App extends Component {
 }
 
 
-clickApplyClearance = () => {
+// clickApplyClearance = () => {
 
-    // this.setState({
-    //     applyClearanceOpen : true
-    // });
-    this.props.history.push('/apply-clearance');
+//     // this.setState({
+//     //     applyClearanceOpen : true
+//     // });
+//     this.props.history.push('/apply-clearance');
 
   
  
-}
+// }
 
-clickApplyPermit = () => {
-  this.props.history.push('/apply-permit');
-}
+// clickApplyPermit = () => {
+//   this.props.history.push('/apply-permit');
+// }
 
-clickCheckStatus = () => {
-  this.props.history.push('/check-status');
-}
+// clickCheckStatus = () => {
+//   this.props.history.push('/check-status');
+//}
 
-clickApplyClearanceClose = () => {
-    this.setState({
-        applyClearanceOpen : false
-    }); 
-}
+// clickApplyClearanceClose = () => {
+//     this.setState({
+//         applyClearanceOpen : false
+//     }); 
+// }
 
-clickApplyPermitClose = () => {
-    this.setState({
-        applyPermitOpen : false
-    }); 
-}
+// clickApplyPermitClose = () => {
+//     this.setState({
+//         applyPermitOpen : false
+//     }); 
+// }
 
-clickCheckStatusClose = () => {
-    this.setState({
-        checkStatusOpen : false
-    }); 
-}
+// clickCheckStatusClose = () => {
+//     this.setState({
+//         checkStatusOpen : false
+//     }); 
+// }
 
   componentDidMount () {
     
@@ -86,8 +87,8 @@ clickCheckStatusClose = () => {
 
     let routes = (
       <Switch>
-        {/* <Route path="/" exact component={Events} />
-        <Route path="/document" exact component={Documents} />
+         <Route path="/" exact component={ApplicationContainer} />
+       {/* <Route path="/document" exact component={Documents} />
         <Route path="/complaint" exact component={ViewComplaint} />
         <Route path="/contact" exact component={Contacts} /> */}
         <Route path="/apply-clearance" exact component={ApplyClearance} />
@@ -112,7 +113,9 @@ clickCheckStatusClose = () => {
   
       let sections = (
         <React.Fragment>
-              <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
+         
+              {
+              /*  <ApplicationContainer /> <Modal show={this.state.applyClearanceOpen} modalClosed={this.clickApplyClearanceClose}>
   
       <ApplyClearance />
    
@@ -124,26 +127,28 @@ clickCheckStatusClose = () => {
   <Modal show={this.state.checkStatusOpen} modalClosed={this.clickCheckStatusClose}>
           
   <CheckStatus />
-  </Modal>
-        <Section
+  </Modal> */}
+
+
+        {/* <Section
           dark={true}
           id="section1">
        {/* <Events /> */}
        {/* {      urls.map ( (row) =>  ( <MainContainer title={row.title} subtitle={row.subtitle} url={row.url} />  )    )}
        }*/}
-       <MainContainer title='Apply Clearance' subtitle='Apply Clearance' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg' clicked={this.clickApplyClearance} />
+      {/* <MainContainer title='Apply Clearance' subtitle='Apply Clearance' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg' clicked={this.clickApplyClearance} />
        <MainContainer title='Apply Permit' subtitle='Apply Permit' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_permit.jpg' clicked={this.clickApplyPermit} />
        <MainContainer title='Check Status' subtitle='Check status' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/check_status.jpg' clicked={this.clickCheckStatus} />
        
    
       
-        </Section>
-        <Section
+        </Section> */}
+        {/* <Section
         dark={true}
         id="section2"
       >
         <Documents />
-      </Section>
+      </Section> */}
         </React.Fragment>
 
       );
