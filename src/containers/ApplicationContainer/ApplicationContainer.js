@@ -8,6 +8,24 @@ import Login from '../Login/Login';
 import CheckStatus from '../CheckStatus/CheckStatus';
 import Events from '../Events/Events';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+const useStyles = makeStyles((theme) => (
+  {
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      height: 140,
+      width: 100,
+    },
+    control: {
+      padding: theme.spacing(2),
+    },
+  }
+));
+
 
 class ApplicationContainer extends Component {
     clickApplyClearance = () => {
@@ -30,11 +48,24 @@ class ApplicationContainer extends Component {
    render () {
        return <React.Fragment>
            <Events />
-       <MainContainer title='Apply Clearance' subtitle='Apply Clearance' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg' clicked={this.clickApplyClearance} />
-       <MainContainer title='Apply Permit' subtitle='Apply Permit' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_permit.jpg' clicked={this.clickApplyPermit} />
-       <MainContainer title='Check Status' subtitle='Check status' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/check_status.jpg' clicked={this.clickCheckStatus} />
-       
-   
+           <Grid  direction={'row'}>
+             <Grid container direction={'row'}>
+               <Grid item>
+               <MainContainer title='Apply Clearance' subtitle='Apply Clearance' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg' clicked={this.clickApplyClearance} />
+
+               </Grid>
+               <Grid item>
+               <MainContainer title='Apply Permit' subtitle='Apply Permit' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_permit.jpg' clicked={this.clickApplyPermit} />
+
+               </Grid>
+               <Grid item>
+               <MainContainer title='Check Status' subtitle='Check status' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/check_status.jpg' clicked={this.clickCheckStatus} />
+
+               </Grid>
+             </Grid>
+           </Grid>
+  
+
 
        </React.Fragment>
    }
