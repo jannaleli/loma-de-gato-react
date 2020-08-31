@@ -49,7 +49,7 @@ class ApplicationContainer extends Component {
        return <React.Fragment>
            <Events />
            <Grid  direction={'row'}>
-             <Grid container direction={'row'}>
+             <Grid container direction={'row'} justify="center">
                <Grid item>
                <MainContainer title='Apply Clearance' subtitle='Apply Clearance' url='https://barangay-api.s3-ap-southeast-1.amazonaws.com/apply_clearance.jpg' clicked={this.clickApplyClearance} />
 
