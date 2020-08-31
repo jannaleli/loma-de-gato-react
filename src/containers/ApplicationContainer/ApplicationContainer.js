@@ -47,7 +47,7 @@ class ApplicationContainer extends Component {
     
    render () {
        return <React.Fragment>
-           <Events />
+           
            <Grid  direction={'row'}>
              <Grid container direction={'row'} justify="center">
                <Grid item>
@@ -66,7 +66,7 @@ class ApplicationContainer extends Component {
            </Grid>
   
 
-
+           <Events />
        </React.Fragment>
    }
 }
