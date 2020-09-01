@@ -17,7 +17,33 @@ import Documents from '../Documents/Documents';
 import ViewComplaint from '../ViewComplaint/ViewComplaint'
 
 
-
+const useStyles = makeStyles (
+  (theme) => (
+    {
+      root: {
+        width: '100%',
+      },
+      paper: {
+        width: '100%',
+        marginBottom: theme.spacing(2),
+      },
+      table: {
+        minWidth: 750,
+      },
+      visuallyHidden: {
+        border: 0,
+        clip: 'rect(0 0 0 0)',
+        height: 1,
+        margin: 1,
+        overflow: 'hidden',
+        padding: 0,
+        position: 'absolute',
+        top: 20,
+        width: 1,
+      },
+    }
+  )
+);
 
  
 class Events extends Component {
@@ -27,6 +53,8 @@ class Events extends Component {
     event_desc: null,
     
 }
+
+
 
 
     componentDidMount () {
@@ -50,8 +78,8 @@ class Events extends Component {
     }
 
     render () {
-  
-
+    const  classes = useStyles();
+    const [dense, setDense] = React.useState(false);
         return(
 
           
@@ -69,7 +97,10 @@ class Events extends Component {
         </Modal>
 
 <TableContainer component={Paper}>
-            <Table size="small" aria-label="a dense table">
+            <Table className={classes.table} 
+            size={dense ? 'small' : 'medium'} 
+            aria-labelledby='tableTitle'
+            aria-label='enhanced table'>
       
               <TableBody>
                 {this.props.events.map((row) => (

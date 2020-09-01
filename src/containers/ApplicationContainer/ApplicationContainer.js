@@ -65,8 +65,8 @@ class ApplicationContainer extends Component {
              </Grid>
            </Grid>
   
-           <Events />
 
+           <Events />
        </React.Fragment>
    }
 }
