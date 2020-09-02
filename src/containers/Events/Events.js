@@ -70,8 +70,8 @@ const dense = false;
               />
         </Modal>
 
-        <TableContainer component={Paper}>
-            <Table className={classes.Table} 
+        <TableContainer component={Paper} className={classes.Table} >
+            <Table 
             size={dense ? 'small' : 'medium'} 
             aria-labelledby='tableTitle'
             aria-label='enhanced table'>
