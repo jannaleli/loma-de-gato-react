@@ -16,8 +16,7 @@ export default class NavigationBar extends Component {
          
         <div className={classes.NavigationContent}>
         <Logo />
-        <Logo />
-        <Logo />
+
        
           {/* <img
             src={logo}
