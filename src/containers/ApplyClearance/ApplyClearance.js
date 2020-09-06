@@ -52,13 +52,18 @@ class ApplyClearance extends Component {
 
     render () {
 
-        return <div className={parentClass.ApplicationContainer}>
+        return <div className={classes.ApplyClearance}>
             {/* <div className={classes.ApplyClearance}> */}
-                <h1>ApplyClearance</h1>
-                <div className={classes.Scroll}>
+            <div  className={classes.Table}>
+        <h1 className={classes.H1}>Apply Permit</h1>
+        </div>
+                <div >
+                {/* className={classes.Scroll} */}
                 <form noValidate autoComplete="off">
+                <br></br>
+                <br></br>
                 <Grid container justify="center" spacing={1}>
-                 <Select defaultValue="Employment" id="reason"  onChange={(value) =>this.onChangeTextField(value, 'Reason')}>
+                 <Select fullWidth={true} defaultValue="Employment" id="reason"  onChange={(value) =>this.onChangeTextField(value, 'Reason')}>
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
@@ -69,11 +74,12 @@ class ApplyClearance extends Component {
                 </Grid>
 
                 <Grid container justify="center" spacing={1}>
-                 <TextField error={this.state.governmentId_error} id="government_id" label="Government Id"  onChange={(value) =>this.onChangeTextField(value, 'Government ID')} />
+                 <TextField fullWidth={true}  error={this.state.governmentId_error} id="government_id" label="Government Id"  onChange={(value) =>this.onChangeTextField(value, 'Government ID')} />
                  </Grid>
                  <br></br>
+                 <br></br>
                  <Grid container justify="center" spacing={1}>
-                 <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+                 <Button  fullWidth={true}  variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
                 </Button>
                 </Grid>

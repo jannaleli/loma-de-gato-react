@@ -40,17 +40,24 @@ class Login extends Component {
     }
     render () {
        
-        return        <div className={classes.Login}>     <form noValidate autoComplete="off">
+        return        <div className={classes.Login}>  
+        
+        <div  className={classes.Table}>
+        <h1 className={classes.H1}>Login</h1>
+        </div>
+        
+           <form noValidate autoComplete="off">
 
 <Grid container justify="center" spacing={0.5}>
-       <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
+       <TextField fullWidth={true}  error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
        </Grid>
        <Grid container justify="center" spacing={0.5}>
-       <TextField error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
+       <TextField fullWidth={true}  error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
        </Grid>
        <br></br>
+       <br></br>
        <Grid container justify="center" spacing={0.2}>
-       <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+       <Button fullWidth={true}  variant="contained" color="primary" onClick={this.clickSubmit}>
                 Submit
             </Button>
             </Grid>

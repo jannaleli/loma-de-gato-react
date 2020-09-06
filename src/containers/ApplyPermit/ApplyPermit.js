@@ -184,82 +184,87 @@ class ApplyPermit extends Component {
     render () {
        
         return <div className={classes.ApplyPermit}>
-            <h1>Apply Permit</h1>
+             <div  className={classes.Table}>
+        <h1 className={classes.H1}>Apply Permit</h1>
+        </div>
 
-            <div className={classes.Scroll}>
+            <div>
+                {/* className={classes.Scroll} */}
             <form noValidate autoComplete="off">
-            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.sec_number_error} id="sec_number" label="SEC Number" onChange={(value) =>this.onChangeTextField(value, 'SEC Number')}/>
+            <Grid container item xs={12} justify="center" spacing={1}>
+           <TextField  fullWidth={true} error={this.state.sec_number_error} id="sec_number" label="SEC Number" onChange={(value) =>this.onChangeTextField(value, 'SEC Number')}/>
            </Grid>
-
-           <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.business_name_error} id="business_name" label="Business Name" onChange={(value) =>this.onChangeTextField(value, 'Business Name')} />
+            <br />
+           <Grid container item xs={12}  justify="center" spacing={1}>
+           <TextField fullWidth={true} error={this.state.business_name_error} id="business_name" label="Business Name" onChange={(value) =>this.onChangeTextField(value, 'Business Name')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.business_activity_error} id="business_activity" label="Business Activity" onChange={(value) =>this.onChangeTextField(value, 'Business Activity')} />
+           <TextField fullWidth={true} error={this.state.business_activity_error} id="business_activity" label="Business Activity" onChange={(value) =>this.onChangeTextField(value, 'Business Activity')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.no_of_units_error} id="no_of_units" label="No. of Units"  onChange={(value) =>this.onChangeTextField(value, 'No. of Units')} />
+           <TextField fullWidth={true} error={this.state.no_of_units_error} id="no_of_units" label="No. of Units"  onChange={(value) =>this.onChangeTextField(value, 'No. of Units')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.street_error} id="street" label="Street" onChange={(value) =>this.onChangeTextField(value, 'Street')}  />
+           <TextField fullWidth={true} error={this.state.street_error} id="street" label="Street" onChange={(value) =>this.onChangeTextField(value, 'Street')}  />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.building_number_error} id="building_number" label="Building Number" onChange={(value) =>this.onChangeTextField(value, 'Building Number')}  />
+           <TextField fullWidth={true} error={this.state.building_number_error} id="building_number" label="Building Number" onChange={(value) =>this.onChangeTextField(value, 'Building Number')}  />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.capitalization_error} id="capitalization" label="Capitalization" onChange={(value) =>this.onChangeTextField(value, 'Capitalization')} />
+           <TextField fullWidth={true} error={this.state.capitalization_error} id="capitalization" label="Capitalization" onChange={(value) =>this.onChangeTextField(value, 'Capitalization')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.gross_sale_error} id="gross_sale" label="Gross Sale" onChange={(value) =>this.onChangeTextField(value, 'Gross Sale')} />
+           <TextField fullWidth={true} error={this.state.gross_sale_error} id="gross_sale" label="Gross Sale" onChange={(value) =>this.onChangeTextField(value, 'Gross Sale')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_name_error} id="lessor_name" label="Lessor Name" onChange={(value) =>this.onChangeTextField(value, 'Lessor Name')} />
+           <TextField fullWidth={true} error={this.state.lessor_name_error} id="lessor_name" label="Lessor Name" onChange={(value) =>this.onChangeTextField(value, 'Lessor Name')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_email_error} id="lessor_email" label="Lessor Email" onChange={(value) =>this.onChangeTextField(value, 'Lessor Email')} />
+           <TextField fullWidth={true} error={this.state.lessor_email_error} id="lessor_email" label="Lessor Email" onChange={(value) =>this.onChangeTextField(value, 'Lessor Email')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_building_number_error} id="lessor_building_number" label="Lessor Building Number" onChange={(value) =>this.onChangeTextField(value, 'Lessor Building Number')}  />
+           <TextField fullWidth={true} error={this.state.lessor_building_number_error} id="lessor_building_number" label="Lessor Building Number" onChange={(value) =>this.onChangeTextField(value, 'Lessor Building Number')}  />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_city_error} id="lessor_city" label="Lessor City" onChange={(value) =>this.onChangeTextField(value, 'Lessor City')} />
+           <TextField fullWidth={true} error={this.state.lessor_city_error} id="lessor_city" label="Lessor City" onChange={(value) =>this.onChangeTextField(value, 'Lessor City')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_subdivision_error} id="lessor_subdivision" label="Lessor Subdivision"  onChange={(value) =>this.onChangeTextField(value, 'Lessor Subdivision')} />
+           <TextField fullWidth={true} error={this.state.lessor_subdivision_error} id="lessor_subdivision" label="Lessor Subdivision"  onChange={(value) =>this.onChangeTextField(value, 'Lessor Subdivision')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_street_error} id="lessor_street" label="Lessor Street" onChange={(value) =>this.onChangeTextField(value, 'Lessor Street')} />
+           <TextField fullWidth={true} error={this.state.lessor_street_error} id="lessor_street" label="Lessor Street" onChange={(value) =>this.onChangeTextField(value, 'Lessor Street')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_barangay_error} id="lessor_barangay" label="Lessor Barangay" onChange={(value) =>this.onChangeTextField(value, 'Lessor Barangay')} />
+           <TextField fullWidth={true} error={this.state.lessor_barangay_error} id="lessor_barangay" label="Lessor Barangay" onChange={(value) =>this.onChangeTextField(value, 'Lessor Barangay')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lessor_province_error} id="lessor_province_error" label="Lessor Province" onChange={(value) =>this.onChangeTextField(value, 'Lessor Province')} />
+           <TextField fullWidth={true} error={this.state.lessor_province_error} id="lessor_province_error" label="Lessor Province" onChange={(value) =>this.onChangeTextField(value, 'Lessor Province')} />
            </Grid>
-
+           <br />
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.monthly_rental_error} id="lessor_monthly_rental" label="Monthly Rental" onChange={(value) =>this.onChangeTextField(value, 'Monthly Rental')} />
+           <TextField fullWidth={true} error={this.state.monthly_rental_error} id="lessor_monthly_rental" label="Monthly Rental" onChange={(value) =>this.onChangeTextField(value, 'Monthly Rental')} />
            </Grid>
             <br></br>
+            <br></br>
            <Grid container justify="center" spacing={1}>
-           <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+           <Button fullWidth={true} variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
                 </Button>
+             
            </Grid>
        </form>
 </div>

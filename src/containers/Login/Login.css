@@ -1,5 +1,22 @@
 .Login {
     text-align: center;
-    width: 80%;
+    width: 500px;
     margin: auto;
 }
+.H1Dev {
+   
+    margin: 0 auto;
+    
+   
+}
+
+.H1 {
+    font-family:  'Lato', sans-serif;
+    width: 500px;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 60px;
+    text-align : center;
+    padding: 20px;
+  }
+  

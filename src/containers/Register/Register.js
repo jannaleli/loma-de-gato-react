@@ -191,7 +191,9 @@ class Register extends Component {
         console.log(this.props.confirmSignUp)
         console.log(this.props.confirmSignUpSuccess )
         return  <div className={classes.Register}>
-                <h1>Register</h1>
+                 <div  className={classes.Table}>
+        <h1 className={classes.H1}>Register</h1>
+        </div>
 
                 <Modal show={this.props.confirmSignUp} modalClosed={this.confirmSignUpClose}>
          
@@ -209,58 +211,74 @@ class Register extends Component {
        
 
             <Grid container justify="center" spacing={1}>    
-           <TextField error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
+           <TextField fullWidth={true}  error={this.state.email_error} id="email" label="Email" onChange={(value) =>this.onChangeTextField(value, 'Email')}/>
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
+           <TextField fullWidth={true}  error={this.state.password_error} id="password" label="Password" onChange={(value) =>this.onChangeTextField(value, 'Password')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.firstName_error} id="firstName" label="First Name" onChange={(value) =>this.onChangeTextField(value, 'First Name')} />
+           <TextField fullWidth={true}  error={this.state.firstName_error} id="firstName" label="First Name" onChange={(value) =>this.onChangeTextField(value, 'First Name')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.lastName_error} id="lastName" label="Last Name"  onChange={(value) =>this.onChangeTextField(value, 'Last Name')} />
+           <TextField fullWidth={true}  error={this.state.lastName_error} id="lastName" label="Last Name"  onChange={(value) =>this.onChangeTextField(value, 'Last Name')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.phone_error} id="phone" label="Phone" onChange={(value) =>this.onChangeTextField(value, 'Phone')}  />
+           <TextField fullWidth={true}  error={this.state.phone_error} id="phone" label="Phone" onChange={(value) =>this.onChangeTextField(value, 'Phone')}  />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.birthDate_error} id="birthDate" label="Birth Date" onChange={(value) =>this.onChangeTextField(value, 'Birth Date')}  />
+           <TextField fullWidth={true}  error={this.state.birthDate_error} id="birthDate" label="Birth Date" onChange={(value) =>this.onChangeTextField(value, 'Birth Date')}  />
            </Grid>
-           
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.birthPlace_error} id="birthPlace" label="Birth Place" onChange={(value) =>this.onChangeTextField(value, 'Birth Place')} />
+           <TextField fullWidth={true} error={this.state.birthPlace_error} id="birthPlace" label="Birth Place" onChange={(value) =>this.onChangeTextField(value, 'Birth Place')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.gender_error} id="gender" label="Gender" onChange={(value) =>this.onChangeTextField(value, 'Gender')} />
+           <TextField fullWidth={true} error={this.state.gender_error} id="gender" label="Gender" onChange={(value) =>this.onChangeTextField(value, 'Gender')} />
            </Grid>
+           <br></br>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.civilStatus_error} id="civilService" label="Civil Status" onChange={(value) =>this.onChangeTextField(value, 'Civil Status')} />
+           <TextField fullWidth={true} error={this.state.civilStatus_error} id="civilService" label="Civil Status" onChange={(value) =>this.onChangeTextField(value, 'Civil Status')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.address_error} id="address" label="Address" onChange={(value) =>this.onChangeTextField(value, 'Address')} />
+           <TextField fullWidth={true} error={this.state.address_error} id="address" label="Address" onChange={(value) =>this.onChangeTextField(value, 'Address')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.zipNumber_error} id="zipNumber" label="Zip Number" onChange={(value) =>this.onChangeTextField(value, 'Zip Number')}  />
+           <TextField fullWidth={true} error={this.state.zipNumber_error} id="zipNumber" label="Zip Number" onChange={(value) =>this.onChangeTextField(value, 'Zip Number')}  />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.grossIncome_error} id="grossIncome" label="Gross Income" onChange={(value) =>this.onChangeTextField(value, 'Gross Income')} />
+           <TextField fullWidth={true} error={this.state.grossIncome_error} id="grossIncome" label="Gross Income" onChange={(value) =>this.onChangeTextField(value, 'Gross Income')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.tinNumber_error} id="tinNumber" label="TIN"  onChange={(value) =>this.onChangeTextField(value, 'TIN')} />
+           <TextField fullWidth={true} error={this.state.tinNumber_error} id="tinNumber" label="TIN"  onChange={(value) =>this.onChangeTextField(value, 'TIN')} />
            </Grid>
+           <br></br>
            <Grid container justify="center" spacing={1}>
-           <TextField error={this.state.profession_error} id="profession" label="Profession" onChange={(value) =>this.onChangeTextField(value, 'Profession')} />
+           <TextField fullWidth={true} error={this.state.profession_error} id="profession" label="Profession" onChange={(value) =>this.onChangeTextField(value, 'Profession')} />
            </Grid>
-           <Grid container justify="center" spacing={3}>
-           <TextField error={this.state.weight_error} id="weight" label="Weight" onChange={(value) =>this.onChangeTextField(value, 'Weight')} />
+           <br></br>
+           <Grid container justify="center" spacing={1}>
+           <TextField fullWidth={true} error={this.state.weight_error} id="weight" label="Weight" onChange={(value) =>this.onChangeTextField(value, 'Weight')} />
            </Grid>
-           <Grid container justify="center" spacing={3}>
-           <TextField error={this.state.height_error} id="height" label="Height" onChange={(value) =>this.onChangeTextField(value, 'Height')} />
+           <br></br>
+           <Grid container justify="center" spacing={1}>
+           <TextField fullWidth={true} error={this.state.height_error} id="height" label="Height" onChange={(value) =>this.onChangeTextField(value, 'Height')} />
            </Grid>
        </form>
        <br></br>
+       <br></br>
        <Grid container justify="center" spacing={3}>
-       <Button variant="contained" color="primary" onClick={this.clickSubmit}>
+       <Button fullWidth={true} variant="contained" color="primary" onClick={this.clickSubmit}>
                     Submit
                 </Button>
                 </Grid>
