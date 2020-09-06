@@ -13,9 +13,11 @@ export default class NavigationBar extends Component {
      
 
        <nav className={classes.NavigationBar} id="navbar">
-         <Logo />
+         
         <div className={classes.NavigationContent}>
-          
+        <Logo />
+        <Logo />
+        <Logo />
        
           {/* <img
             src={logo}
