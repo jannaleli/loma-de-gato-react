@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'react-router-dom/Link';
-
+import Logo from '../../Logo/Logo';
 import { /*Link,*/ animateScroll as scroll } from 'react-scroll';
 import classes from './NavigationBar.css';
 export default class NavigationBar extends Component {
@@ -13,13 +13,16 @@ export default class NavigationBar extends Component {
      
 
        <nav className={classes.NavigationBar} id="navbar">
+         <Logo />
         <div className={classes.NavigationContent}>
+          
+       
           {/* <img
             src={logo}
             className="nav-logo"
             alt="Logo"
             onClick={this.scrollToTop}
-          /> */}
+          />
      
           <ul className={classes.NavigationUnordered}> 
           <li className={classes.NavigationList}>
@@ -68,7 +71,7 @@ export default class NavigationBar extends Component {
               </Link>
             </li>
 
-          </ul>
+          </ul> */}
         </div>
       </nav>
     

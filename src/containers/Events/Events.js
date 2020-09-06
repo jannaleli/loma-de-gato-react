@@ -69,10 +69,14 @@ const dense = false;
               modalClosed={this.ModalClosed}
               />
         </Modal>
-
-        <TableContainer component={Paper} className={classes.Table} >
+        <div  className={classes.Table}>
+        <h1 className={classes.H1}>What's Happening?</h1>
+        </div>
+          <div    className={classes.Table} >
+        <TableContainer>
             <Table 
-            size={dense ? 'small' : 'medium'} 
+            
+            size='small'
             aria-labelledby='tableTitle'
             aria-label='enhanced table'>
       
@@ -90,7 +94,7 @@ const dense = false;
               </TableBody>
             </Table>
           </TableContainer>
-
+          </div>
     
             </React.Fragment>
              : 
